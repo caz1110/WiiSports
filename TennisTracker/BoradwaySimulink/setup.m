@@ -11,11 +11,11 @@ coefficients = [1 0 -1;
 
 %Image Proc Testing
 
-rightBall = imread("rightBall.jpg");
-rightBaseline = imread("rightBaseline.jpg");
+%rightBall = imread("rightBall.jpg");
+%rightBaseline = imread("rightBaseline.jpg");
 
-rightBall = im2gray(rightBall);
-rightBaseline = im2gray(rightBaseline);
+%rightBall = im2gray(rightBall);
+%rightBaseline = im2gray(rightBaseline);
 
 % Current findings:
 % image differencing MUST be done BEFORE the gray scale
@@ -23,8 +23,8 @@ rightBaseline = im2gray(rightBaseline);
 % grayscale channel must then be recalculated. This unfortunately
 % means two channels are completely wasted.
 
-difference = imabsdiff(rightBall, rightBaseline);
+%difference = imabsdiff(rightBall, rightBaseline);
 
 
-imshow(difference)
+%imshow(difference)
 %imshow(gray)
