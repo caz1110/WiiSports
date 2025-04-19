@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:conv_core_ip:1.0
--- IP Revision: 2114040390
+-- IP Revision: 2114046972
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

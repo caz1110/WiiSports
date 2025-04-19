@@ -2,12 +2,6 @@
 % Sobel Demo Setup File
 R = 752; 
 C = 480;
-redMax = 255;
-greenMax = 255;
-blueMax = 255;
-coefficients = [1 0 -1;
-                2 0 -2;
-                1 0 -1];
 
 %Image Proc Testing
 

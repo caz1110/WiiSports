@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Apr 15 00:33:03 2025
-# Process ID: 27812
+# Start of session at: Sat Apr 19 14:20:44 2025
+# Process ID: 1992
 # Current directory: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj
 # Command line: vivado.exe -mode batch -notrace -source vivado_build.tcl
 # Log file: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado.log
@@ -60,10 +60,10 @@ INFO: [BD 41-1029] Generation completed for the IP Integrator block conv_core_ip
 Exporting to file C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/hw_handoff/design_1.hwh
 Generated Block Design Tcl file C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/hw_handoff/design_1_bd.tcl
 Generated Hardware Definition File C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/synth/design_1.hwdef
-[Tue Apr 15 00:33:37 2025] Launched synth_1...
+[Sat Apr 19 14:21:17 2025] Launched synth_1...
 Run output will be captured here: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado_prj.runs/synth_1/runme.log
-launch_runs: Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 810.617 ; gain = 404.840
-[Tue Apr 15 00:33:37 2025] Waiting for synth_1 to finish...
+launch_runs: Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 810.773 ; gain = 404.465
+[Sat Apr 19 14:21:17 2025] Waiting for synth_1 to finish...
 
 *** Running vivado
     with args -log design_1_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
@@ -87,9 +87,9 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg400-3
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 23700 
+INFO: Helper process launched with PID 15840 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 882.824 ; gain = 184.250
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 883.352 ; gain = 183.906
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/hdl/design_1_wrapper.vhd:40]
 INFO: [Synth 8-3491] module 'design_1' declared at 'C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/synth/design_1.vhd:5648' bound to instance 'design_1_i' of component 'design_1' [C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/hdl/design_1_wrapper.vhd:67]
@@ -2905,86 +2905,86 @@ INFO: [Synth 8-3491] module 'cam_axi_v1_0' declared at 'c:/Users/Chris/Documents
 INFO: [Synth 8-256] done synthesizing module 'design_1_cam_axi_2_0' (80#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ip/design_1_cam_axi_2_0/synth/design_1_cam_axi_2_0.vhd:86]
 INFO: [Synth 8-3491] module 'design_1_conv_core_ip_0_0' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ip/design_1_conv_core_ip_0_0/synth/design_1_conv_core_ip_0_0.vhd:56' bound to instance 'conv_core_ip_0' of component 'design_1_conv_core_ip_0_0' [C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/synth/design_1.vhd:6929]
 INFO: [Synth 8-638] synthesizing module 'design_1_conv_core_ip_0_0' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ip/design_1_conv_core_ip_0_0/synth/design_1_conv_core_ip_0_0.vhd:92]
-INFO: [Synth 8-3491] module 'conv_core_ip' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip.vhd:29' bound to instance 'U0' of component 'conv_core_ip' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ip/design_1_conv_core_ip_0_0/synth/design_1_conv_core_ip_0_0.vhd:180]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip.vhd:65]
-INFO: [Synth 8-3491] module 'conv_core_ip_reset_sync' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_reset_sync.vhd:22' bound to instance 'u_conv_core_ip_reset_sync_inst' of component 'conv_core_ip_reset_sync' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip.vhd:220]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_reset_sync' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_reset_sync.vhd:30]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_reset_sync' (81#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_reset_sync.vhd:30]
-INFO: [Synth 8-3491] module 'conv_core_ip_axi_lite' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi_lite.vhd:22' bound to instance 'u_conv_core_ip_axi_lite_inst' of component 'conv_core_ip_axi_lite' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip.vhd:226]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_axi_lite' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi_lite.vhd:54]
-INFO: [Synth 8-3491] module 'conv_core_ip_addr_decoder' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_addr_decoder.vhd:23' bound to instance 'u_conv_core_ip_addr_decoder_inst' of component 'conv_core_ip_addr_decoder' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi_lite.vhd:129]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_addr_decoder' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_addr_decoder.vhd:42]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_addr_decoder' (82#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_addr_decoder.vhd:42]
-INFO: [Synth 8-3491] module 'conv_core_ip_axi_lite_module' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi_lite_module.vhd:22' bound to instance 'u_conv_core_ip_axi_lite_module_inst' of component 'conv_core_ip_axi_lite_module' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi_lite.vhd:146]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_axi_lite_module' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi_lite_module.vhd:53]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_axi_lite_module' (83#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi_lite_module.vhd:53]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_axi_lite' (84#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi_lite.vhd:54]
-INFO: [Synth 8-3491] module 'conv_core_ip_axi4_stream_video_slave' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_slave.vhd:22' bound to instance 'u_conv_core_ip_axi4_stream_video_slave_inst' of component 'conv_core_ip_axi4_stream_video_slave' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip.vhd:256]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_axi4_stream_video_slave' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_slave.vhd:46]
-INFO: [Synth 8-3491] module 'conv_core_ip_fifo_eol' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol.vhd:22' bound to instance 'u_conv_core_ip_fifo_eol_inst' of component 'conv_core_ip_fifo_eol' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_slave.vhd:135]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_eol' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol.vhd:34]
+INFO: [Synth 8-3491] module 'conv_core_ip' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip.vhd:29' bound to instance 'U0' of component 'conv_core_ip' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ip/design_1_conv_core_ip_0_0/synth/design_1_conv_core_ip_0_0.vhd:180]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip.vhd:65]
+INFO: [Synth 8-3491] module 'conv_core_ip_reset_sync' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_reset_sync.vhd:22' bound to instance 'u_conv_core_ip_reset_sync_inst' of component 'conv_core_ip_reset_sync' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip.vhd:219]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_reset_sync' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_reset_sync.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_reset_sync' (81#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_reset_sync.vhd:30]
+INFO: [Synth 8-3491] module 'conv_core_ip_axi_lite' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi_lite.vhd:22' bound to instance 'u_conv_core_ip_axi_lite_inst' of component 'conv_core_ip_axi_lite' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip.vhd:225]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_axi_lite' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi_lite.vhd:54]
+INFO: [Synth 8-3491] module 'conv_core_ip_addr_decoder' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_addr_decoder.vhd:23' bound to instance 'u_conv_core_ip_addr_decoder_inst' of component 'conv_core_ip_addr_decoder' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi_lite.vhd:129]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_addr_decoder' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_addr_decoder.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_addr_decoder' (82#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_addr_decoder.vhd:42]
+INFO: [Synth 8-3491] module 'conv_core_ip_axi_lite_module' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi_lite_module.vhd:22' bound to instance 'u_conv_core_ip_axi_lite_module_inst' of component 'conv_core_ip_axi_lite_module' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi_lite.vhd:146]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_axi_lite_module' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi_lite_module.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_axi_lite_module' (83#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi_lite_module.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_axi_lite' (84#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi_lite.vhd:54]
+INFO: [Synth 8-3491] module 'conv_core_ip_axi4_stream_video_slave' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_slave.vhd:22' bound to instance 'u_conv_core_ip_axi4_stream_video_slave_inst' of component 'conv_core_ip_axi4_stream_video_slave' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip.vhd:255]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_axi4_stream_video_slave' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_slave.vhd:46]
+INFO: [Synth 8-3491] module 'conv_core_ip_fifo_eol' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol.vhd:22' bound to instance 'u_conv_core_ip_fifo_eol_inst' of component 'conv_core_ip_fifo_eol' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_slave.vhd:135]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_eol' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol.vhd:34]
 	Parameter AddrWidth bound to: 2 - type: integer 
 	Parameter DataWidth bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_singlebit' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:22' bound to instance 'u_conv_core_ip_fifo_eol_classic_ram' of component 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol.vhd:114]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:37]
+INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_singlebit' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:22' bound to instance 'u_conv_core_ip_fifo_eol_classic_ram' of component 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol.vhd:114]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:37]
 	Parameter AddrWidth bound to: 2 - type: integer 
 	Parameter DataWidth bound to: 1 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_SimpleDualPortRAM_singlebit' (85#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:37]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_eol' (86#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol.vhd:34]
-INFO: [Synth 8-3491] module 'conv_core_ip_fifo_sof' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof.vhd:22' bound to instance 'u_conv_core_ip_fifo_sof_inst' of component 'conv_core_ip_fifo_sof' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_slave.vhd:145]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_sof' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_SimpleDualPortRAM_singlebit' (85#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:37]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_eol' (86#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol.vhd:34]
+INFO: [Synth 8-3491] module 'conv_core_ip_fifo_sof' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof.vhd:22' bound to instance 'u_conv_core_ip_fifo_sof_inst' of component 'conv_core_ip_fifo_sof' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_slave.vhd:145]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_sof' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof.vhd:34]
 	Parameter AddrWidth bound to: 2 - type: integer 
 	Parameter DataWidth bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_singlebit' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:22' bound to instance 'u_conv_core_ip_fifo_sof_classic_ram' of component 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof.vhd:114]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_sof' (87#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof.vhd:34]
-INFO: [Synth 8-3491] module 'conv_core_ip_adapter_in' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in.vhd:22' bound to instance 'u_conv_core_ip_conv_core_ip_axi4_stream_video_slave_conv_core_ip_adapter_in' of component 'conv_core_ip_adapter_in' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_slave.vhd:155]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_adapter_in' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in.vhd:45]
-INFO: [Synth 8-3491] module 'conv_core_ip_adapter_in_module' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in_module.vhd:22' bound to instance 'u_conv_core_ip_conv_core_ip_axi4_stream_video_slave_conv_core_ip_adapter_in_conv_core_ip_adapter_in_module' of component 'conv_core_ip_adapter_in_module' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in.vhd:78]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_adapter_in_module' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in_module.vhd:45]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_adapter_in_module' (88#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in_module.vhd:45]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_adapter_in' (89#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in.vhd:45]
-INFO: [Synth 8-3491] module 'conv_core_ip_fifo_data' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data.vhd:22' bound to instance 'u_conv_core_ip_fifo_data_inst' of component 'conv_core_ip_fifo_data' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_slave.vhd:176]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_data' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data.vhd:36]
+INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_singlebit' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:22' bound to instance 'u_conv_core_ip_fifo_sof_classic_ram' of component 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof.vhd:114]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_sof' (87#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof.vhd:34]
+INFO: [Synth 8-3491] module 'conv_core_ip_adapter_in' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in.vhd:22' bound to instance 'u_conv_core_ip_conv_core_ip_axi4_stream_video_slave_conv_core_ip_adapter_in' of component 'conv_core_ip_adapter_in' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_slave.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_adapter_in' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in.vhd:45]
+INFO: [Synth 8-3491] module 'conv_core_ip_adapter_in_module' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in_module.vhd:22' bound to instance 'u_conv_core_ip_conv_core_ip_axi4_stream_video_slave_conv_core_ip_adapter_in_conv_core_ip_adapter_in_module' of component 'conv_core_ip_adapter_in_module' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in.vhd:78]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_adapter_in_module' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in_module.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_adapter_in_module' (88#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in_module.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_adapter_in' (89#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in.vhd:45]
+INFO: [Synth 8-3491] module 'conv_core_ip_fifo_data' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data.vhd:22' bound to instance 'u_conv_core_ip_fifo_data_inst' of component 'conv_core_ip_fifo_data' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_slave.vhd:176]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_data' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data.vhd:36]
 	Parameter AddrWidth bound to: 2 - type: integer 
 	Parameter DataWidth bound to: 64 - type: integer 
-INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_generic' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_generic.vhd:22' bound to instance 'u_conv_core_ip_fifo_data_classic_ram' of component 'conv_core_ip_SimpleDualPortRAM_generic' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data.vhd:118]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_SimpleDualPortRAM_generic' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_generic.vhd:37]
+INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_generic' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_generic.vhd:22' bound to instance 'u_conv_core_ip_fifo_data_classic_ram' of component 'conv_core_ip_SimpleDualPortRAM_generic' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data.vhd:118]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_SimpleDualPortRAM_generic' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_generic.vhd:37]
 	Parameter AddrWidth bound to: 2 - type: integer 
 	Parameter DataWidth bound to: 64 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_SimpleDualPortRAM_generic' (90#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_generic.vhd:37]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_data' (91#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data.vhd:36]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_axi4_stream_video_slave' (92#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_slave.vhd:46]
-INFO: [Synth 8-3491] module 'conv_core_ip_dut' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_dut.vhd:22' bound to instance 'u_conv_core_ip_dut_inst' of component 'conv_core_ip_dut' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip.vhd:278]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_dut' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_dut.vhd:43]
-INFO: [Synth 8-3491] module 'conv_core_ip_src_conv_core' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_src_conv_core.vhd:54' bound to instance 'u_conv_core_ip_src_conv_core' of component 'conv_core_ip_src_conv_core' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_dut.vhd:86]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_src_conv_core' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_src_conv_core.vhd:75]
-WARNING: [Synth 8-3936] Found unconnected internal register 'Abs4_y_reg' and it is trimmed from '10' to '8' bits. [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_src_conv_core.vhd:214]
-WARNING: [Synth 8-3936] Found unconnected internal register 'Abs3_y_reg' and it is trimmed from '10' to '8' bits. [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_src_conv_core.vhd:189]
-WARNING: [Synth 8-3936] Found unconnected internal register 'Abs2_y_reg' and it is trimmed from '10' to '8' bits. [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_src_conv_core.vhd:164]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_src_conv_core' (93#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_src_conv_core.vhd:75]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_dut' (94#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_dut.vhd:43]
-INFO: [Synth 8-3491] module 'conv_core_ip_axi4_stream_video_master' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_master.vhd:22' bound to instance 'u_conv_core_ip_axi4_stream_video_master_inst' of component 'conv_core_ip_axi4_stream_video_master' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip.vhd:297]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_axi4_stream_video_master' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_master.vhd:42]
-INFO: [Synth 8-3491] module 'conv_core_ip_fifo_data_OUT' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data_OUT.vhd:22' bound to instance 'u_conv_core_ip_fifo_data_OUT_inst' of component 'conv_core_ip_fifo_data_OUT' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_master.vhd:99]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_data_OUT' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data_OUT.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_SimpleDualPortRAM_generic' (90#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_generic.vhd:37]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_data' (91#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_axi4_stream_video_slave' (92#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_slave.vhd:46]
+INFO: [Synth 8-3491] module 'conv_core_ip_dut' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_dut.vhd:22' bound to instance 'u_conv_core_ip_dut_inst' of component 'conv_core_ip_dut' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip.vhd:277]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_dut' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_dut.vhd:43]
+INFO: [Synth 8-3491] module 'conv_core_ip_src_conv_core' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_src_conv_core.vhd:54' bound to instance 'u_conv_core_ip_src_conv_core' of component 'conv_core_ip_src_conv_core' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_dut.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_src_conv_core' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_src_conv_core.vhd:75]
+WARNING: [Synth 8-3936] Found unconnected internal register 'Abs4_y_reg' and it is trimmed from '10' to '8' bits. [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_src_conv_core.vhd:227]
+WARNING: [Synth 8-3936] Found unconnected internal register 'Abs3_y_reg' and it is trimmed from '10' to '8' bits. [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_src_conv_core.vhd:202]
+WARNING: [Synth 8-3936] Found unconnected internal register 'Abs2_y_reg' and it is trimmed from '10' to '8' bits. [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_src_conv_core.vhd:177]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_src_conv_core' (93#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_src_conv_core.vhd:75]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_dut' (94#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_dut.vhd:43]
+INFO: [Synth 8-3491] module 'conv_core_ip_axi4_stream_video_master' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_master.vhd:22' bound to instance 'u_conv_core_ip_axi4_stream_video_master_inst' of component 'conv_core_ip_axi4_stream_video_master' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip.vhd:296]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_axi4_stream_video_master' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_master.vhd:42]
+INFO: [Synth 8-3491] module 'conv_core_ip_fifo_data_OUT' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data_OUT.vhd:22' bound to instance 'u_conv_core_ip_fifo_data_OUT_inst' of component 'conv_core_ip_fifo_data_OUT' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_master.vhd:99]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_data_OUT' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data_OUT.vhd:36]
 	Parameter AddrWidth bound to: 2 - type: integer 
 	Parameter DataWidth bound to: 64 - type: integer 
-INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_generic' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_generic.vhd:22' bound to instance 'u_conv_core_ip_fifo_data_OUT_classic_ram_generic' of component 'conv_core_ip_SimpleDualPortRAM_generic' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data_OUT.vhd:119]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_data_OUT' (95#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data_OUT.vhd:36]
-INFO: [Synth 8-3491] module 'conv_core_ip_fifo_eol_out' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol_out.vhd:22' bound to instance 'u_conv_core_ip_fifo_eol_out_inst' of component 'conv_core_ip_fifo_eol_out' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_master.vhd:111]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_eol_out' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol_out.vhd:34]
+INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_generic' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_generic.vhd:22' bound to instance 'u_conv_core_ip_fifo_data_OUT_classic_ram_generic' of component 'conv_core_ip_SimpleDualPortRAM_generic' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data_OUT.vhd:119]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_data_OUT' (95#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data_OUT.vhd:36]
+INFO: [Synth 8-3491] module 'conv_core_ip_fifo_eol_out' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol_out.vhd:22' bound to instance 'u_conv_core_ip_fifo_eol_out_inst' of component 'conv_core_ip_fifo_eol_out' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_master.vhd:111]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_eol_out' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol_out.vhd:34]
 	Parameter AddrWidth bound to: 2 - type: integer 
 	Parameter DataWidth bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_singlebit' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:22' bound to instance 'u_conv_core_ip_fifo_eol_out_classic_ram' of component 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol_out.vhd:114]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_eol_out' (96#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol_out.vhd:34]
-INFO: [Synth 8-3491] module 'conv_core_ip_fifo_sof_out' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof_out.vhd:22' bound to instance 'u_conv_core_ip_fifo_sof_out_inst' of component 'conv_core_ip_fifo_sof_out' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_master.vhd:121]
-INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_sof_out' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof_out.vhd:34]
+INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_singlebit' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:22' bound to instance 'u_conv_core_ip_fifo_eol_out_classic_ram' of component 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol_out.vhd:114]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_eol_out' (96#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol_out.vhd:34]
+INFO: [Synth 8-3491] module 'conv_core_ip_fifo_sof_out' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof_out.vhd:22' bound to instance 'u_conv_core_ip_fifo_sof_out_inst' of component 'conv_core_ip_fifo_sof_out' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_master.vhd:121]
+INFO: [Synth 8-638] synthesizing module 'conv_core_ip_fifo_sof_out' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof_out.vhd:34]
 	Parameter AddrWidth bound to: 2 - type: integer 
 	Parameter DataWidth bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_singlebit' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:22' bound to instance 'u_conv_core_ip_fifo_sof_out_classic_ram_singlebit' of component 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof_out.vhd:114]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_sof_out' (97#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof_out.vhd:34]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_axi4_stream_video_master' (98#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_axi4_stream_video_master.vhd:42]
-INFO: [Synth 8-256] done synthesizing module 'conv_core_ip' (99#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip.vhd:65]
+INFO: [Synth 8-3491] module 'conv_core_ip_SimpleDualPortRAM_singlebit' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_SimpleDualPortRAM_singlebit.vhd:22' bound to instance 'u_conv_core_ip_fifo_sof_out_classic_ram_singlebit' of component 'conv_core_ip_SimpleDualPortRAM_singlebit' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof_out.vhd:114]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_fifo_sof_out' (97#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof_out.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip_axi4_stream_video_master' (98#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_axi4_stream_video_master.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'conv_core_ip' (99#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip.vhd:65]
 INFO: [Synth 8-256] done synthesizing module 'design_1_conv_core_ip_0_0' (100#1) [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ip/design_1_conv_core_ip_0_0/synth/design_1_conv_core_ip_0_0.vhd:92]
 INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:60' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/synth/design_1.vhd:6963]
 INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:60]
@@ -5983,7 +5983,7 @@ WARNING: [Synth 8-3331] design xpm_memory_base__parameterized9 has unconnected p
 WARNING: [Synth 8-3331] design xpm_memory_base__parameterized9 has unconnected port dinb[18]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:08:07 ; elapsed = 00:08:12 . Memory (MB): peak = 1363.582 ; gain = 665.008
+Finished RTL Elaboration : Time (s): cpu = 00:07:54 ; elapsed = 00:07:57 . Memory (MB): peak = 1365.723 ; gain = 666.277
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -5996,10 +5996,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:08:09 ; elapsed = 00:08:14 . Memory (MB): peak = 1363.582 ; gain = 665.008
+Finished Handling Custom Attributes : Time (s): cpu = 00:07:55 ; elapsed = 00:07:59 . Memory (MB): peak = 1365.723 ; gain = 666.277
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:08:09 ; elapsed = 00:08:14 . Memory (MB): peak = 1363.582 ; gain = 665.008
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:07:55 ; elapsed = 00:07:59 . Memory (MB): peak = 1365.723 ; gain = 666.277
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 426 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -6142,22 +6142,22 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 2229.066 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 2229.613 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 426 instances were transformed.
   FDR => FDRE: 423 instances
   SRL16 => SRL16E: 3 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2229.066 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2229.613 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:08:58 ; elapsed = 00:09:01 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Constraint Validation : Time (s): cpu = 00:08:44 ; elapsed = 00:08:46 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:08:58 ; elapsed = 00:09:01 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Loading Part and Timing Information : Time (s): cpu = 00:08:44 ; elapsed = 00:08:46 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -6223,7 +6223,7 @@ Applied set_property DONT_TOUCH = true for design_1_i/smartconnect_0/inst/s00_no
 Applied set_property DONT_TOUCH = true for design_1_i/smartconnect_0/inst/s01_nodes/s01_r_node/inst/inst_mi_handler/\gen_normal_area.inst_fifo_node_payld /\gen_xpm_memory_fifo.inst_fifo /\gen_mem_rep[0].inst_xpm_memory . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/smartconnect_1/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/\gen_normal_area.inst_fifo_node_payld /\gen_xpm_memory_fifo.inst_fifo /\gen_mem_rep[0].inst_xpm_memory . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:08:58 ; elapsed = 00:09:02 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:08:45 ; elapsed = 00:08:47 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/e644/hdl/axi_datamover_v5_1_vh_rfs.vhd:18758]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/e644/hdl/axi_datamover_v5_1_vh_rfs.vhd:18182]
@@ -6258,15 +6258,15 @@ INFO: [Synth 8-802] inferred FSM for state register 'dmacntrl_cs_reg' in module 
 INFO: [Synth 8-4471] merging register 'cmnd_pending_reg' into 's_axis_cmd_tvalid_reg' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/ec9e/hdl/axi_vdma_v6_3_rfs.vhd:63316]
 INFO: [Synth 8-802] inferred FSM for state register 'axi_lite_wstate_reg' in module 'conv_core_ip_axi_lite_module'
 INFO: [Synth 8-802] inferred FSM for state register 'axi_lite_rstate_reg' in module 'conv_core_ip_axi_lite_module'
-INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol.vhd:176]
-INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof.vhd:176]
-INFO: [Synth 8-4471] merging register 'cond10_reg' into 'vstart_output_reg' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in_module.vhd:429]
-INFO: [Synth 8-4471] merging register 'data_buf_delay1_reg[63:0]' into 'data_buf_delay_1_reg[63:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in_module.vhd:579]
-INFO: [Synth 8-4471] merging register 'eol_buf_reg' into 'hend_output_reg' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_adapter_in_module.vhd:760]
-INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data.vhd:180]
-INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_data_OUT.vhd:181]
-INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_eol_out.vhd:176]
-INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/b7e9/hdl/conv_core_ip_fifo_sof_out.vhd:176]
+INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol.vhd:176]
+INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof.vhd:176]
+INFO: [Synth 8-4471] merging register 'cond10_reg' into 'vstart_output_reg' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in_module.vhd:429]
+INFO: [Synth 8-4471] merging register 'data_buf_delay1_reg[63:0]' into 'data_buf_delay_1_reg[63:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in_module.vhd:579]
+INFO: [Synth 8-4471] merging register 'eol_buf_reg' into 'hend_output_reg' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_adapter_in_module.vhd:760]
+INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data.vhd:180]
+INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_data_OUT.vhd:181]
+INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_eol_out.vhd:176]
+INFO: [Synth 8-4471] merging register 'fifo_back_dir_reg[1:0]' into 'fifo_front_dir_reg[1:0]' [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/f3b7/hdl/conv_core_ip_fifo_sof_out.vhd:176]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axi_protocol_converter_v2_1_19_b2s_rd_cmd_fsm'
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/c83a/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2870]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/ipshared/c83a/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2870]
@@ -6432,7 +6432,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'gen_axi.write_cs_reg' usin
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'gen_axi.gen_write.write_cs_reg' using encoding 'one-hot' in module 'sc_mmu_v1_0_7_decerr_slave'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:09:07 ; elapsed = 00:09:11 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:08:53 ; elapsed = 00:08:56 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'design_1_i/axis_broadcaster_0/inst/broadcaster_core/MI_SLOT[0].util_vector2axis' (axis_infrastructure_v1_1_0_util_vector2axis) to 'design_1_i/axis_broadcaster_0/inst/broadcaster_core/MI_SLOT[1].util_vector2axis'
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
@@ -6454,7 +6454,7 @@ Report RTL Partitions:
 |10    |s00_entry_pipeline_imp_F6210K__GC0      |           1|       268|
 |11    |bd_88fd__GC0                            |           1|      1684|
 |12    |design_1__GCB0                          |           1|     30943|
-|13    |design_1__GCB1                          |           1|     10383|
+|13    |design_1__GCB1                          |           1|     10389|
 |14    |design_1__GCB2                          |           1|     11592|
 +------+----------------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -6525,12 +6525,12 @@ Detailed RTL Component Info :
 	                9 Bit    Registers := 31    
 	                8 Bit    Registers := 97    
 	                7 Bit    Registers := 23    
-	                6 Bit    Registers := 95    
-	                5 Bit    Registers := 101   
+	                6 Bit    Registers := 100   
+	                5 Bit    Registers := 96    
 	                4 Bit    Registers := 165   
 	                3 Bit    Registers := 98    
 	                2 Bit    Registers := 127   
-	                1 Bit    Registers := 1930  
+	                1 Bit    Registers := 1931  
 +---RAMs : 
 	             132K Bit         RAMs := 2     
 	               8K Bit         RAMs := 3     
@@ -11147,8 +11147,8 @@ Detailed RTL Component Info :
 +---Registers : 
 	                9 Bit    Registers := 3     
 	                8 Bit    Registers := 4     
-	                5 Bit    Registers := 5     
-	                1 Bit    Registers := 3     
+	                6 Bit    Registers := 5     
+	                1 Bit    Registers := 4     
 +---Muxes : 
 	   2 Input      8 Bit        Muxes := 3     
 Module conv_core_ip_SimpleDualPortRAM_generic__1 
@@ -12848,7 +12848,7 @@ INFO: [Synth 8-3332] Sequential element (I_RST_MODULE/GEN_RESET_FOR_S2MM.RESET_I
 INFO: [Synth 8-3332] Sequential element (I_RST_MODULE/GEN_RESET_FOR_S2MM.RESET_I/GEN_RESET_FOR_ASYNC.HARD_RESET_CDC_I/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5) is unused and will be removed from module axi_vdma.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:10:29 ; elapsed = 00:10:34 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:10:09 ; elapsed = 00:10:13 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
@@ -12929,7 +12929,7 @@ Report RTL Partitions:
 |10    |s00_entry_pipeline_imp_F6210K__GC0      |           1|       198|
 |11    |bd_88fd__GC0                            |           1|      1348|
 |12    |design_1__GCB0                          |           1|     21820|
-|13    |design_1__GCB1                          |           1|      6411|
+|13    |design_1__GCB1                          |           1|      6415|
 |14    |design_1__GCB2                          |           1|      7306|
 |15    |sc_mmu_v1_0_7_top__GC0__1               |           1|       324|
 |16    |sc_exit_v1_0_8_axi3_conv__GC0__1        |           1|      1104|
@@ -12956,7 +12956,7 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:10:35 ; elapsed = 00:10:40 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:10:15 ; elapsed = 00:10:19 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -12964,7 +12964,7 @@ Start Timing Optimization
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:10:42 ; elapsed = 00:10:47 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Timing Optimization : Time (s): cpu = 00:10:21 ; elapsed = 00:10:25 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -13041,7 +13041,7 @@ Report RTL Partitions:
 |10    |s00_entry_pipeline_imp_F6210K__GC0      |           1|       198|
 |11    |bd_88fd__GC0                            |           1|      1348|
 |12    |design_1__GCB0                          |           1|     21820|
-|13    |design_1__GCB1                          |           1|      6411|
+|13    |design_1__GCB1                          |           1|      6415|
 |14    |design_1__GCB2                          |           1|      7595|
 |15    |sc_mmu_v1_0_7_top__GC0__1               |           1|       324|
 |16    |sc_exit_v1_0_8_axi3_conv__GC0__1        |           1|      1104|
@@ -13068,7 +13068,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:10:53 ; elapsed = 00:10:58 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Technology Mapping : Time (s): cpu = 00:10:32 ; elapsed = 00:10:36 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -13128,7 +13128,7 @@ INFO: [Synth 8-5365] Flop GEN_SPRT_FOR_S2MM.S2MMADDR32.I_S2MM_DMA_MNGR/VIDEO_GEN
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:10:55 ; elapsed = 00:11:00 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished IO Insertion : Time (s): cpu = 00:10:34 ; elapsed = 00:10:38 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -13141,7 +13141,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:10:55 ; elapsed = 00:11:00 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Renaming Generated Instances : Time (s): cpu = 00:10:34 ; elapsed = 00:10:38 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -13153,25 +13153,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:10:58 ; elapsed = 00:11:03 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:10:36 ; elapsed = 00:10:40 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:10:58 ; elapsed = 00:11:03 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Renaming Generated Ports : Time (s): cpu = 00:10:37 ; elapsed = 00:10:40 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:10:58 ; elapsed = 00:11:03 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Handling Custom Attributes : Time (s): cpu = 00:10:37 ; elapsed = 00:10:41 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:10:58 ; elapsed = 00:11:04 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Renaming Generated Nets : Time (s): cpu = 00:10:37 ; elapsed = 00:10:41 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -13183,9 +13183,9 @@ Static Shift Register Report:
 +--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |axi_vdma                  | AXI_LITE_REG_INTERFACE_I/GEN_AXI_LITE_IF.AXI_LITE_IF_I/GEN_LITE_IS_ASYNC.GEN_S2MM_ONLY_ASYNC_LITE_ACCESS.prepare_wrce_pulse_lite_d6_reg | 6      | 2     | NO           | NO                 | NO                | 2      | 0       | 
 |axi_vdma                  | AXI_LITE_REG_INTERFACE_I/GEN_AXI_LITE_IF.AXI_LITE_IF_I/GEN_LITE_IS_ASYNC.GEN_S2MM_ONLY_ASYNC_LITE_ACCESS.sig_arvalid_arrived_d4_reg     | 3      | 2     | NO           | NO                 | NO                | 2      | 0       | 
-|design_1_conv_core_ip_0_0 | U0/u_conv_core_ip_dut_inst/u_conv_core_ip_src_conv_core/alpha_reg_1_reg[4]                                                              | 5      | 1     | YES          | NO                 | YES               | 1      | 0       | 
-|design_1_conv_core_ip_0_0 | U0/u_conv_core_ip_dut_inst/u_conv_core_ip_src_conv_core/alpha_reg_2_reg[4]                                                              | 5      | 1     | YES          | NO                 | YES               | 1      | 0       | 
-|design_1_conv_core_ip_0_0 | U0/u_conv_core_ip_dut_inst/u_conv_core_ip_src_conv_core/alpha_reg_4_reg[4]                                                              | 5      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|design_1_conv_core_ip_0_0 | U0/u_conv_core_ip_dut_inst/u_conv_core_ip_src_conv_core/alpha_reg_1_reg[5]                                                              | 6      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|design_1_conv_core_ip_0_0 | U0/u_conv_core_ip_dut_inst/u_conv_core_ip_src_conv_core/alpha_reg_2_reg[5]                                                              | 6      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|design_1_conv_core_ip_0_0 | U0/u_conv_core_ip_dut_inst/u_conv_core_ip_src_conv_core/alpha_reg_4_reg[5]                                                              | 6      | 1     | YES          | NO                 | YES               | 1      | 0       | 
 |axi_vdma                  | AXI_LITE_REG_INTERFACE_I/GEN_AXI_LITE_IF.AXI_LITE_IF_I/GEN_LITE_IS_ASYNC.GEN_MM2S_ONLY_ASYNC_LITE_ACCESS.prepare_wrce_pulse_lite_d6_reg | 6      | 1     | NO           | NO                 | NO                | 1      | 0       | 
 |axi_vdma                  | AXI_LITE_REG_INTERFACE_I/GEN_AXI_LITE_IF.AXI_LITE_IF_I/GEN_LITE_IS_ASYNC.GEN_MM2S_ONLY_ASYNC_LITE_ACCESS.sig_arvalid_arrived_d4_reg     | 3      | 1     | NO           | NO                 | NO                | 1      | 0       | 
 +--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
@@ -13235,8 +13235,8 @@ Report Cell Usage:
 |4     |LUT1       |  1263|
 |5     |LUT2       |  1174|
 |6     |LUT3       |  3955|
-|7     |LUT4       |  2103|
-|8     |LUT5       |  1930|
+|7     |LUT4       |  2101|
+|8     |LUT5       |  1932|
 |9     |LUT6       |  2801|
 |10    |MUXF7      |    22|
 |11    |PS7        |     1|
@@ -13249,7 +13249,7 @@ Report Cell Usage:
 |18    |SRL16E     |   577|
 |19    |SRLC32E    |   245|
 |20    |FDR        |   298|
-|21    |FDRE       | 15060|
+|21    |FDRE       | 15062|
 |22    |FDSE       |   477|
 +------+-----------+------+
 
@@ -13257,8 +13257,8 @@ Report Instance Areas:
 +------+-----------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+------+
 |      |Instance                                                                                                               |Module                                                                |Cells |
 +------+-----------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+------+
-|1     |top                                                                                                                    |                                                                      | 30778|
-|2     |  design_1_i                                                                                                           |design_1                                                              | 30778|
+|1     |top                                                                                                                    |                                                                      | 30780|
+|2     |  design_1_i                                                                                                           |design_1                                                              | 30780|
 |3     |    smartconnect_0                                                                                                     |design_1_smartconnect_0_0                                             |  6659|
 |4     |      inst                                                                                                             |bd_48ac                                                               |  6659|
 |5     |        clk_map                                                                                                        |clk_map_imp_1NMB928                                                   |    41|
@@ -14001,8 +14001,8 @@ Report Instance Areas:
 |742   |    axis_broadcaster_0                                                                                                 |design_1_axis_broadcaster_0_0                                         |     7|
 |743   |      inst                                                                                                             |top_design_1_axis_broadcaster_0_0                                     |     7|
 |744   |        broadcaster_core                                                                                               |axis_broadcaster_v1_1_18_core                                         |     7|
-|745   |    conv_core_ip_0                                                                                                     |design_1_conv_core_ip_0_0                                             |  1799|
-|746   |      U0                                                                                                               |conv_core_ip                                                          |  1799|
+|745   |    conv_core_ip_0                                                                                                     |design_1_conv_core_ip_0_0                                             |  1801|
+|746   |      U0                                                                                                               |conv_core_ip                                                          |  1801|
 |747   |        u_conv_core_ip_axi4_stream_video_master_inst                                                                   |conv_core_ip_axi4_stream_video_master                                 |   491|
 |748   |          u_conv_core_ip_fifo_data_OUT_inst                                                                            |conv_core_ip_fifo_data_OUT                                            |   423|
 |749   |            u_conv_core_ip_fifo_data_OUT_classic_ram_generic                                                           |conv_core_ip_SimpleDualPortRAM_generic_66                             |   204|
@@ -14022,8 +14022,8 @@ Report Instance Areas:
 |763   |        u_conv_core_ip_axi_lite_inst                                                                                   |conv_core_ip_axi_lite                                                 |   176|
 |764   |          u_conv_core_ip_addr_decoder_inst                                                                             |conv_core_ip_addr_decoder                                             |   108|
 |765   |          u_conv_core_ip_axi_lite_module_inst                                                                          |conv_core_ip_axi_lite_module                                          |    68|
-|766   |        u_conv_core_ip_dut_inst                                                                                        |conv_core_ip_dut                                                      |   120|
-|767   |          u_conv_core_ip_src_conv_core                                                                                 |conv_core_ip_src_conv_core                                            |   120|
+|766   |        u_conv_core_ip_dut_inst                                                                                        |conv_core_ip_dut                                                      |   122|
+|767   |          u_conv_core_ip_src_conv_core                                                                                 |conv_core_ip_src_conv_core                                            |   122|
 |768   |        u_conv_core_ip_reset_sync_inst                                                                                 |conv_core_ip_reset_sync                                               |     3|
 |769   |    axi_vdma_3                                                                                                         |design_1_axi_vdma_3_0                                                 |  2663|
 |770   |      U0                                                                                                               |axi_vdma__parameterized2                                              |  2663|
@@ -14238,17 +14238,17 @@ Report Instance Areas:
 |979   |            \GEN_RESET_FOR_ASYNC.HARD_RESET_CDC_I                                                                      |cdc_sync__parameterized0_7                                            |    12|
 +------+-----------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:10:58 ; elapsed = 00:11:04 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Finished Writing Synthesis Report : Time (s): cpu = 00:10:37 ; elapsed = 00:10:41 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 4229 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:03 ; elapsed = 00:10:19 . Memory (MB): peak = 2230.926 ; gain = 665.008
-Synthesis Optimization Complete : Time (s): cpu = 00:10:58 ; elapsed = 00:11:04 . Memory (MB): peak = 2230.926 ; gain = 1532.352
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:56 ; elapsed = 00:09:57 . Memory (MB): peak = 2231.465 ; gain = 666.277
+Synthesis Optimization Complete : Time (s): cpu = 00:10:37 ; elapsed = 00:10:41 . Memory (MB): peak = 2231.465 ; gain = 1532.020
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 1061 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2230.926 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2231.465 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 570 instances were transformed.
   FDR => FDRE: 298 instances
@@ -14260,19 +14260,19 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 1406 Infos, 208 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:11:10 ; elapsed = 00:11:16 . Memory (MB): peak = 2230.926 ; gain = 1826.180
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2230.926 ; gain = 0.000
+synth_design: Time (s): cpu = 00:10:49 ; elapsed = 00:10:54 . Memory (MB): peak = 2231.465 ; gain = 1826.809
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2231.465 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado_prj.runs/synth_1/design_1_wrapper.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2230.926 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 2231.465 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 15 00:45:09 2025...
-[Tue Apr 15 00:45:12 2025] synth_1 finished
-wait_on_run: Time (s): cpu = 00:00:01 ; elapsed = 00:11:35 . Memory (MB): peak = 810.617 ; gain = 0.000
-[Tue Apr 15 00:45:14 2025] Launched impl_1...
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 19 14:32:26 2025...
+[Sat Apr 19 14:32:27 2025] synth_1 finished
+wait_on_run: Time (s): cpu = 00:00:01 ; elapsed = 00:11:10 . Memory (MB): peak = 810.773 ; gain = 0.000
+[Sat Apr 19 14:32:29 2025] Launched impl_1...
 Run output will be captured here: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado_prj.runs/impl_1/runme.log
-[Tue Apr 15 00:45:14 2025] Waiting for impl_1 to finish...
+[Sat Apr 19 14:32:29 2025] Waiting for impl_1 to finish...
 
 *** Running vivado
     with args -log design_1_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
@@ -14470,7 +14470,7 @@ Finished Sourcing Tcl File [D:/Xilinx/Vivado/2019.1/data/ip/xpm/xpm_memory/tcl/x
 Sourcing Tcl File [D:/Xilinx/Vivado/2019.1/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/smartconnect_0/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
 Finished Sourcing Tcl File [D:/Xilinx/Vivado/2019.1/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/smartconnect_0/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 986.102 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 985.781 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 269 instances were transformed.
   RAM16X1D => RAM32X1D (RAMD32, RAMD32): 6 instances
@@ -14479,7 +14479,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 10 Infos, 80 Warnings, 0 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 986.102 ; gain = 554.250
+link_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 985.781 ; gain = 554.188
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -14490,57 +14490,57 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.465 . Memory (MB): peak = 999.195 ; gain = 13.094
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.483 . Memory (MB): peak = 995.922 ; gain = 10.141
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 1285d3d23
+Ending Cache Timing Information Task | Checksum: 172e21080
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1548.965 ; gain = 549.770
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1546.180 ; gain = 550.258
 
 Starting Logic Optimization Task
 
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 20 inverter(s) to 120 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 165d86b23
+Phase 1 Retarget | Checksum: 173b3ec11
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1695.281 ; gain = 0.152
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1701.203 ; gain = 0.152
 INFO: [Opt 31-389] Phase Retarget created 228 cells and removed 1042 cells
 INFO: [Opt 31-1021] In phase Retarget, 54 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 2 Constant propagation | Checksum: 21b0d08ee
+Phase 2 Constant propagation | Checksum: 1ec4881b4
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1695.281 ; gain = 0.152
-INFO: [Opt 31-389] Phase Constant propagation created 139 cells and removed 724 cells
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1701.203 ; gain = 0.152
+INFO: [Opt 31-389] Phase Constant propagation created 138 cells and removed 713 cells
 INFO: [Opt 31-1021] In phase Constant propagation, 52 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: 247da8688
+Phase 3 Sweep | Checksum: 18d8ecc45
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1695.281 ; gain = 0.152
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1701.203 ; gain = 0.152
 INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 3678 cells
 INFO: [Opt 31-1021] In phase Sweep, 161 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 4 BUFG optimization
-Phase 4 BUFG optimization | Checksum: 247da8688
+Phase 4 BUFG optimization | Checksum: 18d8ecc45
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1695.281 ; gain = 0.152
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1701.203 ; gain = 0.152
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 
 Phase 5 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 5 Shift Register Optimization | Checksum: 247da8688
+Phase 5 Shift Register Optimization | Checksum: 18d8ecc45
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1695.281 ; gain = 0.152
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1701.203 ; gain = 0.152
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 6 Post Processing Netlist
-Phase 6 Post Processing Netlist | Checksum: 247da8688
+Phase 6 Post Processing Netlist | Checksum: 18d8ecc45
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1695.281 ; gain = 0.152
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1701.203 ; gain = 0.152
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 INFO: [Opt 31-1021] In phase Post Processing Netlist, 39 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 Opt_design Change Summary
@@ -14551,7 +14551,7 @@ Opt_design Change Summary
 |  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
 -------------------------------------------------------------------------------------------------------------------------
 |  Retarget                     |             228  |            1042  |                                             54  |
-|  Constant propagation         |             139  |             724  |                                             52  |
+|  Constant propagation         |             138  |             713  |                                             52  |
 |  Sweep                        |               0  |            3678  |                                            161  |
 |  BUFG optimization            |               0  |               0  |                                              0  |
 |  Shift Register Optimization  |               0  |               0  |                                              0  |
@@ -14562,10 +14562,10 @@ Opt_design Change Summary
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1695.281 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 1a93ce481
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1701.203 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 1748dc005
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1695.281 ; gain = 0.152
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1701.203 ; gain = 0.152
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -14582,34 +14582,34 @@ Starting PowerOpt Patch Enables Task
 INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 11 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
 Number of BRAM Ports augmented: 11 newly gated: 0 Total Ports: 22
-Ending PowerOpt Patch Enables Task | Checksum: 20d02c08f
+Ending PowerOpt Patch Enables Task | Checksum: c9f6f33f
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.105 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Ending Power Optimization Task | Checksum: 20d02c08f
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.105 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Ending Power Optimization Task | Checksum: c9f6f33f
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1942.961 ; gain = 247.680
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1944.484 ; gain = 243.281
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 20d02c08f
+Ending Final Cleanup Task | Checksum: c9f6f33f
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Ending Netlist Obfuscation Task | Checksum: 1d239b8f4
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 191b362a7
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1944.484 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
 37 Infos, 80 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:20 . Memory (MB): peak = 1942.961 ; gain = 956.859
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1942.961 ; gain = 0.000
+opt_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:20 . Memory (MB): peak = 1944.484 ; gain = 958.703
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1944.484 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1944.484 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado_prj.runs/impl_1/design_1_wrapper_opt.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file design_1_wrapper_drc_opted.rpt -pb design_1_wrapper_drc_opted.pb -rpx design_1_wrapper_drc_opted.rpx
 Command: report_drc -file design_1_wrapper_drc_opted.rpt -pb design_1_wrapper_drc_opted.pb -rpx design_1_wrapper_drc_opted.rpx
@@ -14634,37 +14634,37 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1250b5449
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: b940044b
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 84d8fa9e
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 110bd0a5f
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 7dbec0a7
+Phase 1.3 Build Placer Netlist Model | Checksum: 13ab5e463
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 7dbec0a7
+Phase 1.4 Constrain Clocks/Macros | Checksum: 13ab5e463
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 7dbec0a7
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 13ab5e463
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 848090d6
+Phase 2.1 Floorplanning | Checksum: 19670bd8c
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 2.2 Global Placement Core
 
@@ -14677,7 +14677,7 @@ INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization wa
 INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
 INFO: [Physopt 32-949] No candidate nets found for HD net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -14695,55 +14695,55 @@ Summary of Physical Synthesis Optimizations
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.2.1 Physical Synthesis In Placer | Checksum: 110facc32
+Phase 2.2.1 Physical Synthesis In Placer | Checksum: 1a8cb3933
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:14 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Phase 2.2 Global Placement Core | Checksum: 931222c7
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:14 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Phase 2.2 Global Placement Core | Checksum: 1e7cb4a8c
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Phase 2 Global Placement | Checksum: 931222c7
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 1e7cb4a8c
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 10206ff12
+Phase 3.1 Commit Multi Column Macros | Checksum: 19ea2ce81
 
-Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 180182ae3
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1836395a7
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: d5de7325
+Phase 3.3 Area Swap Optimization | Checksum: 112308552
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 149af87af
+Phase 3.4 Pipeline Register Optimization | Checksum: 13f9c9505
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 3.5 Small Shape Detail Placement
-Phase 3.5 Small Shape Detail Placement | Checksum: 11469206c
+Phase 3.5 Small Shape Detail Placement | Checksum: 185ea021e
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 3.6 Re-assign LUT pins
-Phase 3.6 Re-assign LUT pins | Checksum: 198092e41
+Phase 3.6 Re-assign LUT pins | Checksum: 1a29733c6
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 3.7 Pipeline Register Optimization
-Phase 3.7 Pipeline Register Optimization | Checksum: 1397604ca
+Phase 3.7 Pipeline Register Optimization | Checksum: 1c58f93f2
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 1397604ca
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 1c58f93f2
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -14751,60 +14751,60 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 16118717a
+Post Placement Optimization Initialization | Checksum: 1d101112c
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
-Phase 4.1.1.1 BUFG Insertion | Checksum: 16118717a
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1d101112c
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1942.961 ; gain = 0.000
-INFO: [Place 30-746] Post Placement Timing Summary WNS=13.386. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: f3cda045
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1944.484 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=13.104. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 1113845e0
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Phase 4.1 Post Commit Optimization | Checksum: f3cda045
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 1113845e0
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: f3cda045
+Phase 4.2 Post Placement Cleanup | Checksum: 1113845e0
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: f3cda045
+Phase 4.3 Placer Reporting | Checksum: 1113845e0
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1944.484 ; gain = 0.000
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Phase 4.4 Final Placement Cleanup | Checksum: 1478f4448
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Phase 4.4 Final Placement Cleanup | Checksum: 869f18cb
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1478f4448
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 869f18cb
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Ending Placer Task | Checksum: 145246c76
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Ending Placer Task | Checksum: 5ab2215f
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 1944.484 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
 64 Infos, 80 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:26 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1942.961 ; gain = 0.000
+place_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:26 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1944.484 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1942.961 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1944.484 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado_prj.runs/impl_1/design_1_wrapper_placed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1942.961 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1944.484 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_io -file design_1_wrapper_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 1942.961 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1944.484 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_placed.rpt -pb design_1_wrapper_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.541 . Memory (MB): peak = 1942.961 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.523 . Memory (MB): peak = 1944.484 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -14816,41 +14816,41 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
-Checksum: PlaceDB: 6cdd2379 ConstDB: 0 ShapeSum: d84748fd RouteDB: 0
+Checksum: PlaceDB: 3f528e1b ConstDB: 0 ShapeSum: 1b5f9344 RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 143395130
+Phase 1 Build RT Design | Checksum: 38f39c55
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:16 . Memory (MB): peak = 1942.961 ; gain = 0.000
-Post Restoration Checksum: NetGraph: 520d0cfa NumContArr: f12c4436 Constraints: 0 Timing: 0
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:17 . Memory (MB): peak = 1944.484 ; gain = 0.000
+Post Restoration Checksum: NetGraph: 26fd0f8b NumContArr: 11f68cca Constraints: 0 Timing: 0
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 143395130
+Phase 2.1 Create Timer | Checksum: 38f39c55
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:16 . Memory (MB): peak = 1952.418 ; gain = 9.457
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:17 . Memory (MB): peak = 1945.328 ; gain = 0.844
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 143395130
+Phase 2.2 Fix Topology Constraints | Checksum: 38f39c55
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:17 . Memory (MB): peak = 1959.840 ; gain = 16.879
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:17 . Memory (MB): peak = 1952.746 ; gain = 8.262
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 143395130
+Phase 2.3 Pre Route Cleanup | Checksum: 38f39c55
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:17 . Memory (MB): peak = 1959.840 ; gain = 16.879
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:17 . Memory (MB): peak = 1952.746 ; gain = 8.262
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: edc02ad3
+Phase 2.4 Update Timing | Checksum: 19ce1cc89
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1983.719 ; gain = 40.758
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=13.604 | TNS=0.000  | WHS=-0.355 | THS=-1596.710|
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1986.305 ; gain = 41.820
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=13.333 | TNS=0.000  | WHS=-0.343 | THS=-1387.726|
 
-Phase 2 Router Initialization | Checksum: 19efaaf82
+Phase 2 Router Initialization | Checksum: 18a0df072
 
-Time (s): cpu = 00:00:28 ; elapsed = 00:00:21 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:22 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Router Utilization Summary
   Global Vertical Routing Utilization    = 0 %
@@ -14858,70 +14858,70 @@ Router Utilization Summary
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 18918
+  Number of Failed Nets               = 18924
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 18918
+  Number of Unrouted Nets             = 18924
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 1b54728a7
+Phase 3 Initial Routing | Checksum: e0d6ae81
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:23 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:24 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 1366
- Number of Nodes with overlaps = 59
+ Number of Nodes with overlaps = 1357
+ Number of Nodes with overlaps = 66
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=12.719 | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=11.557 | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 136272cc2
+Phase 4.1 Global Iteration 0 | Checksum: 1fff65a9f
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:27 . Memory (MB): peak = 1998.938 ; gain = 55.977
-Phase 4 Rip-up And Reroute | Checksum: 136272cc2
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:27 . Memory (MB): peak = 2011.055 ; gain = 66.570
+Phase 4 Rip-up And Reroute | Checksum: 1fff65a9f
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:27 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:27 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 136272cc2
+Phase 5.1 Delay CleanUp | Checksum: 1fff65a9f
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:27 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:27 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 136272cc2
+Phase 5.2 Clock Skew Optimization | Checksum: 1fff65a9f
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:27 . Memory (MB): peak = 1998.938 ; gain = 55.977
-Phase 5 Delay and Skew Optimization | Checksum: 136272cc2
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:28 . Memory (MB): peak = 2011.055 ; gain = 66.570
+Phase 5 Delay and Skew Optimization | Checksum: 1fff65a9f
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:27 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:28 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 17a4a75a3
+Phase 6.1.1 Update Timing | Checksum: 1fa70e1c1
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:27 . Memory (MB): peak = 1998.938 ; gain = 55.977
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=12.752 | TNS=0.000  | WHS=0.033  | THS=0.000  |
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:28 . Memory (MB): peak = 2011.055 ; gain = 66.570
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=11.557 | TNS=0.000  | WHS=0.032  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: d3f8e011
+Phase 6.1 Hold Fix Iter | Checksum: 184985540
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:27 . Memory (MB): peak = 1998.938 ; gain = 55.977
-Phase 6 Post Hold Fix | Checksum: d3f8e011
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:28 . Memory (MB): peak = 2011.055 ; gain = 66.570
+Phase 6 Post Hold Fix | Checksum: 184985540
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:27 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:28 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 3.18862 %
-  Global Horizontal Routing Utilization  = 4.07336 %
+  Global Vertical Routing Utilization    = 3.18204 %
+  Global Horizontal Routing Utilization  = 4.16455 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -14931,47 +14931,47 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 161df52e4
+Phase 7 Route finalize | Checksum: 18e5bed22
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:28 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:28 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 161df52e4
+Phase 8 Verifying routed nets | Checksum: 18e5bed22
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:28 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:28 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 1cabe7f79
+Phase 9 Depositing Routes | Checksum: 152706771
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:29 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:30 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=12.752 | TNS=0.000  | WHS=0.033  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=11.557 | TNS=0.000  | WHS=0.032  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 1cabe7f79
+Phase 10 Post Router Timing | Checksum: 152706771
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:29 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:30 . Memory (MB): peak = 2011.055 ; gain = 66.570
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:29 . Memory (MB): peak = 1998.938 ; gain = 55.977
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:30 . Memory (MB): peak = 2011.055 ; gain = 66.570
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
 81 Infos, 80 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:30 . Memory (MB): peak = 1998.938 ; gain = 55.977
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1998.938 ; gain = 0.000
+route_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:31 . Memory (MB): peak = 2011.055 ; gain = 66.570
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2011.055 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 2000.254 ; gain = 1.316
+Write XDEF Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 2012.367 ; gain = 1.312
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado_prj.runs/impl_1/design_1_wrapper_routed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 2000.254 ; gain = 1.316
+write_checkpoint: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 2012.367 ; gain = 1.312
 INFO: [runtcl-4] Executing : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 Command: report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
@@ -15049,13 +15049,13 @@ INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. In
 INFO: [Common 17-83] Releasing license: Implementation
 136 Infos, 81 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:21 ; elapsed = 00:00:17 . Memory (MB): peak = 2533.184 ; gain = 438.855
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 15 00:47:50 2025...
-[Tue Apr 15 00:47:55 2025] impl_1 finished
-wait_on_run: Time (s): cpu = 00:00:00 ; elapsed = 00:02:41 . Memory (MB): peak = 810.617 ; gain = 0.000
+write_bitstream: Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 2538.473 ; gain = 430.906
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 19 14:35:05 2025...
+[Sat Apr 19 14:35:10 2025] impl_1 finished
+wait_on_run: Time (s): cpu = 00:00:00 ; elapsed = 00:02:41 . Memory (MB): peak = 810.773 ; gain = 0.000
 INFO: [Device 21-403] Loading part xc7z020clg400-3
 INFO: [Netlist 29-17] Analyzing 552 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2019.1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Timing 38-478] Restoring timing data from binary archive.
@@ -15065,18 +15065,18 @@ INFO: [Project 1-853] Binary constraint restore complete.
 Reading XDEF placement.
 Reading placer database...
 Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1797.434 ; gain = 1.973
-Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1797.434 ; gain = 1.973
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1797.434 ; gain = 0.000
+Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1801.281 ; gain = 2.941
+Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1801.281 ; gain = 2.941
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1801.281 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 162 instances were transformed.
   RAM16X1D => RAM32X1D (RAMD32, RAMD32): 5 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 157 instances
 
-open_run: Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1797.434 ; gain = 986.816
+open_run: Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1801.281 ; gain = 990.508
 ------------------------------------
 Embedded system build completed.
 You may close this shell.
 ------------------------------------
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 15 00:48:16 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 19 14:35:30 2025...

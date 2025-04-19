@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Apr 15 00:31:13 2025
-# Process ID: 25896
+# Start of session at: Sat Apr 19 14:13:13 2025
+# Process ID: 25296
 # Current directory: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj
 # Command line: vivado.exe -mode batch -notrace -source vivado_create_prj.tcl
 # Log file: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado.log
@@ -26,4 +26,4 @@ INFO: [PS7-6] Configuring Board Preset part0. Please wait ......
 INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
 Wrote  : <C:\Users\Chris\Documents\Repos\WiiSports\TennisTracker\BoradwaySimulink\hdl_prj\vivado_ip_prj\src\design_1\design_1.bd> 
 WARNING: [BD_TCL-1000] This Tcl script was generated from a block design that has not been validated. It is possible that design <design_1> may result in errors during validation.
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 15 00:31:23 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 19 14:13:25 2025...

@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Apr 15 00:30:43 2025
-# Process ID: 20648
+# Start of session at: Sat Apr 19 14:12:45 2025
+# Process ID: 14844
 # Current directory: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/ipcore/conv_core_ip_v1_0/prj_ip
 # Command line: vivado.exe -mode batch -notrace -source vivado_ip_package.tcl
 # Log file: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/ipcore/conv_core_ip_v1_0/prj_ip/vivado.log
@@ -74,4 +74,4 @@ WARNING: [IP_Flow 19-1971] File named "hdl/conv_core_ip_axi_lite.vhd" already ex
 WARNING: [IP_Flow 19-1971] File named "hdl/conv_core_ip_axi_lite.vhd" already exists in file group "xilinx_anylanguagebehavioralsimulation", cannot add it again.
 WARNING: [IP_Flow 19-1971] File named "hdl/conv_core_ip.vhd" already exists in file group "xilinx_anylanguagesynthesis", cannot add it again.
 WARNING: [IP_Flow 19-1971] File named "hdl/conv_core_ip.vhd" already exists in file group "xilinx_anylanguagebehavioralsimulation", cannot add it again.
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 15 00:30:51 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 19 14:13:01 2025...

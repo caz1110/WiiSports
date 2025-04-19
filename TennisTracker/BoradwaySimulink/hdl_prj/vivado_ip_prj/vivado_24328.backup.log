@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Apr 15 00:31:25 2025
-# Process ID: 15452
+# Start of session at: Sat Apr 19 14:13:26 2025
+# Process ID: 24328
 # Current directory: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj
 # Command line: vivado.exe -mode batch -notrace -source vivado_insert_ip.tcl
 # Log file: C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/vivado.log
@@ -46,6 +46,6 @@ Wrote  : <C:\Users\Chris\Documents\Repos\WiiSports\TennisTracker\BoradwaySimulin
 VHDL Output written to : C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/synth/design_1.vhd
 VHDL Output written to : C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/sim/design_1.vhd
 VHDL Output written to : C:/Users/Chris/Documents/Repos/WiiSports/TennisTracker/BoradwaySimulink/hdl_prj/vivado_ip_prj/src/design_1/hdl/design_1_wrapper.vhd
-make_wrapper: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 751.625 ; gain = 307.309
+make_wrapper: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 751.785 ; gain = 307.551
 INFO: [BD 5-320] Validate design is not run, since the design is already validated.
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 15 00:31:42 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 19 14:13:43 2025...

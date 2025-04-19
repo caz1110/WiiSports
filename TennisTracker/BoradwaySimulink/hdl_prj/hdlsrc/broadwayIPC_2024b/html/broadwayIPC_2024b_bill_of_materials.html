@@ -5,7 +5,7 @@ High-level Resource Utilization Report for broadwayIPC_2024b
 </title>
 
 </head>
-<body bgcolor="#ffffff" link="0033CC" vlink="#666666" onload="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdBillOfMaterials'); else local_onload();}} catch(err) {};hdlTableShrink(this, 'Adder_1_1');hdlTableShrink(this, 'Subtractor_1_1');hdlTableShrink(this, 'Subtractor_1_2');hdlTableShrink(this, 'Register_1_1');hdlTableShrink(this, 'Register_1_2');hdlTableShrink(this, 'Register_1_3');hdlTableShrink(this, 'Multiplexer_1_1');hdlTableShrink(this, 'Multiplexer_1_2');hdlTableShrink(this, 'Static Shift Right_1_1');hdlTableShrink(this, 'Input_Port');hdlTableShrink(this, 'Output_Port');">
+<body bgcolor="#ffffff" link="0033CC" vlink="#666666" onload="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdBillOfMaterials'); else local_onload();}} catch(err) {};hdlTableShrink(this, 'Adder_1_1');hdlTableShrink(this, 'Subtractor_1_1');hdlTableShrink(this, 'Subtractor_1_2');hdlTableShrink(this, 'Register_1_1');hdlTableShrink(this, 'Register_1_2');hdlTableShrink(this, 'Register_1_3');hdlTableShrink(this, 'Multiplexer_1_1');hdlTableShrink(this, 'Multiplexer_1_2');hdlTableShrink(this, 'Multiplexer_1_3');hdlTableShrink(this, 'Static Shift Right_1_1');hdlTableShrink(this, 'Input_Port');hdlTableShrink(this, 'Output_Port');">
 <script>
 <!--
 function hdlTableShrink(o,tagNameStr)
@@ -170,7 +170,7 @@ Adders/Subtractors
 Registers
 </td>
 <td align="center" valign="top" style="border-style: none">
-35
+41
 </td>
 
 </tr>
@@ -179,7 +179,7 @@ Registers
 Total 1-Bit Registers
 </td>
 <td align="center" valign="top" style="border-style: none">
-87
+100
 </td>
 
 </tr>
@@ -197,7 +197,7 @@ RAMs
 Multiplexers
 </td>
 <td align="center" valign="top" style="border-style: none">
-5
+6
 </td>
 
 </tr>
@@ -206,7 +206,7 @@ Multiplexers
 I/O Bits
 </td>
 <td align="center" valign="top" style="border-style: none">
-79
+142
 </td>
 
 </tr>
@@ -257,7 +257,7 @@ Adders/Subtractors (8)
 <span name="Adder_1_1" id="Adder_1_1">
 <ul>
 <li>
-<a href="matlab:coder.internal.code2model('gm_broadwayIPC_2024b:39')" name="code2model" class="code2model">
+<a href="matlab:coder.internal.code2model('gm_broadwayIPC_2024b:45')" name="code2model" class="code2model">
 Sum_stage2
 </a>
 
@@ -333,7 +333,7 @@ Abs4
 
 </span>
 <br /><h5>
-Registers (35)
+Registers (41)
 </h5>
 <span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Register_1_1')" onmouseover="this.style.cursor = 'pointer'">
 [+]
@@ -369,7 +369,7 @@ Delay3
 [+]
 </span>
 <span style="font-family:monospace">
-8-bit Register 							: 4
+8-bit Register 							: 5
 </span>
 <span name="Register_1_2" id="Register_1_2">
 <ul>
@@ -397,6 +397,12 @@ Delay7
 </a>
 
 </li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11958')" name="code2model" class="code2model">
+Delay11
+</a>
+
+</li>
 
 </ul>
 
@@ -405,7 +411,7 @@ Delay7
 [+]
 </span>
 <span style="font-family:monospace">
-1-bit Register 							: 28
+1-bit Register 							: 33
 </span>
 <span name="Register_1_3" id="Register_1_3">
 <ul>
@@ -432,7 +438,7 @@ Delay8
 
 </span>
 <br /><h5>
-Multiplexers (5)
+Multiplexers (6)
 </h5>
 <span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Multiplexer_1_1')" onmouseover="this.style.cursor = 'pointer'">
 [+]
@@ -488,6 +494,24 @@ Relational Operator1
 </ul>
 
 </span>
+<br /><span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Multiplexer_1_3')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+8-bit 2-to-1 Multiplexer 							: 1
+</span>
+<span name="Multiplexer_1_3" id="Multiplexer_1_3">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11957')" name="code2model" class="code2model">
+Product
+</a>
+
+</li>
+
+</ul>
+
+</span>
 <br /><h5>
 Number of Shift operators (3)
 </h5>
@@ -522,7 +546,7 @@ Shift Arithmetic5
 
 </span>
 <br /><h5>
-Number of I/O Bits (79)
+Number of I/O Bits (142)
 </h5>
 <span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Input_Port')" onmouseover="this.style.cursor = 'pointer'">
 [+]
@@ -585,7 +609,7 @@ ctrl
 [+]
 </span>
 <span style="font-family:monospace">
-Number of Output Bits: 7
+Number of Output Bits: 70
 </span>
 <span name="Output_Port" id="Output_Port">
 <ul>
@@ -596,7 +620,7 @@ ce_out: 1 bit
 <a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11729')" name="code2model" class="code2model">
 Video_out
 </a>
-: 1 bit
+: 64 bits
 </li>
 <li>
 <a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11730')" name="code2model" class="code2model">
