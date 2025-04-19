@@ -53,9 +53,9 @@ while(1):
         camWriter.setFrame(data)
         npSocket.send(np.array(2))
     elif cmd == '1':
-        frameLeft,frameRight = camFeedthrough.getStereoRGB()
-        tempImageLeft = np.ascontiguousarray(frameLeft, dtype=np.uint8) 
-        tempImageRight = np.ascontiguousarray(frameRight, dtype=np.uint8) 
+        frame,frameBaseline = camFeedthrough.getStereoRGB()
+        tempImageLeft = np.ascontiguousarray(frame, dtype=np.uint8) 
+        tempImageRight = np.ascontiguousarray(frameBaseline, dtype=np.uint8) 
         npSocket.send(tempImageLeft)
         npSocket.send(tempImageRight)
     elif cmd == '2':
