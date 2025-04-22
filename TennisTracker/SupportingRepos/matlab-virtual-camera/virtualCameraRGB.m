@@ -18,20 +18,22 @@ fprintf(1,"Connected to server\n");
 % send ball and baseline frames
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 imageBool = true;
-for x = 1:20
+for x = 1:40
 write(client,'0');         % Signal start of transmission
 flush(client);             % Ensure the command is sent immediately
 
-% LOAD IMAGES & RESIZE
 if imageBool
     % Right Ball & Baseline
     dataBall = imread('rightBall.jpg');
     dataBaseline = imread('rightBaseline.jpg');
+
 else
     % Left Ball & Baseline
     dataBall = imread('leftBall.jpg');
     dataBaseline = imread('leftBaseline.jpg');
 end
+
+
 dataBall = imresize(dataBall,[height width]);
 dataBaseline = imresize(dataBaseline,[height width]);
 
@@ -60,86 +62,113 @@ imageStack(:,:,8) = dataGrayBaseline;      % Channel 8: Gray Baseline
 
 imageStack(1,1,:) = 0;                     % Clear first pixel — often a sync flag or header
 imageStack = permute(imageStack,[3 2 1]);  % Reorder to [channel, column, row] for the hardware
+write(client,imageStack(:));
+temp = read(client,1);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % receive processed frames from snickerdoodle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
-if x < 10
+if x < 20
     % receive feedthrough frame
     write(client,'1');
     flush(client);
+
+    % LOAD IMAGES FROM SNICKERDOODLE
+    % NOTE: Binarized image stored within red channel
+    if imageBool
+        % Right Image
+        dataRight = read(client,width*height*3);   
+        temp = reshape(dataRight,[3,width,height]);
+        imgRFeedthrough = permute(temp,[3 2 1]);
+        colormap gray
+        imagesc(imgRFeedthrough);
+    else
+        % left Image
+        dataLeft = read(client,width*height*3);   
+        temp = reshape(dataLeft,[3,width,height]);
+        imgLFeedthrough = permute(temp,[3 2 1]);
+        colormap gray
+        imagesc(imgLFeedthrough);
+    end
+
+    % Under image differencing, second set
+    % of RGB channels are empty. Reading is
+    % peformed in order to clear image buffer
+    dataBlank = read(client,width*height*3);
+    temp = reshape(dataBlank,[3,width,height]);
+    imgEmptyFeedthrough = permute(temp,[3 2 1]);
+
 else
     % receive processed frame
     write(client,'2');
-    flush(client); 
-end
+    flush(client);
 
-% LOAD IMAGES FROM SNICKERDOODLE
-%   NOTE: Binarized image stored within red channel
-if imageBool
-    % Right Image
-    dataRight = read(client,width*height*3);   
-    temp = reshape(dataRight,[3,width,height]);
-    imgRProcessed = permute(temp,[3 2 1]);
-else
-    % left Image
-    dataLeft = read(client,width*height*3);   
-    temp = reshape(dataLeft,[3,width,height]);
-    imgLProcessed = permute(temp,[3 2 1]);
-end
+    % LOAD IMAGES FROM SNICKERDOODLE
+    % NOTE: Binarized image stored within red channel
+    if imageBool
+        % Right Image
+        dataRight = read(client,width*height*3);   
+        temp = reshape(dataRight,[3,width,height]);
+        imgRProcessed = permute(temp,[3 2 1]);
+        colormap gray
+        imagesc(imgRProcessed(:,:,1));
+    else
+        % left Image
+        dataLeft = read(client,width*height*3);   
+        temp = reshape(dataLeft,[3,width,height]);
+        imgLProcessed = permute(temp,[3 2 1]);
+        colormap gray
+        imagesc(imgLProcessed(:,:,1));
+    end
 
-% Under image differencing, second set
-% of RGB channels are empty. Reading is
-% peformed in order to clear image buffer
-dataBlank = read(client,width*height*3);
-temp = reshape(dataBlank,[3,width,height]);
-imgEmptyProcessed = permute(temp,[3 2 1]);
+    % Under image differencing, second set
+    % of RGB channels are empty. Reading is
+    % peformed in order to clear image buffer
+    dataBlank = read(client,width*height*3);
+    temp = reshape(dataBlank,[3,width,height]);
+    imgEmptyProcessed = permute(temp,[3 2 1]);
 
-% Display image recieved from snickerdoodle
-if imageBool
-    % Right Ball
-    imagesc(imgRProcessed(:,:,1));
-else
-    % left Ball
-    imagesc(imgLProcessed(:,:,1));
 end
 
 % Flip between L/R side using bool
 imageBool = not(imageBool);
 
-pause(1)
+pause(100/1000)
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END LOOP
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-t = tiledlayout(1,2, 'Padding', 'none', 'TileSpacing', 'compact'); 
+t = tiledlayout(2,2, 'Padding', 'none', 'TileSpacing', 'compact'); 
 t.TileSpacing = 'compact';
 t.Padding = 'compact';
 
 % Display Left Original
 nexttile
-imagesc(dataLeft)
-title('Original Image');
+imagesc(imgLFeedthrough)
+colormap default
+title('Left Original Image');
 axis off
 
 % Display Left Processed
 nexttile
 imagesc(imgLProcessed(:,:,1));
-title('Scaled Red Channel (Visualized)');
+colormap gray
+title('Left Processed Scaled Red Channel');
 axis off
 
 % Display Right Original
 nexttile
-imagesc(dataRight)
-title('Original Image');
+imagesc(imgRFeedthrough)
+colormap default
+title('Right Original Image');
 axis off
 
 % Display Right Processed
 nexttile
 imagesc(imgRProcessed(:,:,1));
-title('Scaled Red Channel (Visualized)');
+colormap gray
+title('Right Processed Scaled Red Channel');
 axis off
 
 % Gray color mapping for correct
 % binarized display
-colormap gray
