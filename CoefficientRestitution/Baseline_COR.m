@@ -1,5 +1,5 @@
-% bounce_tennis_ball_realtime.m
-% Real‑time animation of a tennis ball bouncing on clay, grass, and asphalt.
+% Baseline_COR.m
+% Real‑time animation of a tennis ball bouncing on clay, grass, and hard surfaces.
 
 close all;  clc;
 
@@ -32,17 +32,17 @@ t = 0;
 while any(active)
     pause(dt);
     t = t + dt;
-    
+
     for k = 1:numel(e_vals)
         if ~active(k); continue; end
 
         v(k) = v(k) - g*dt;
         h(k) = h(k) + v(k)*dt;
-        
+
         if h(k) <= 0
             h(k) = 0;
             v(k) = -e_vals(k) * v(k);
-            
+
             if (v(k)^2) / (2*g) < h_min
                 active(k) = false;
             end
@@ -50,7 +50,7 @@ while any(active)
 
         addpoints(hLines(k), t, h(k)*metersToInches);
     end
-    
+
     curr_xlim = xlim(gca);
     if t > curr_xlim(2) - 0.5
         xlim([curr_xlim(1), t + 1]);
