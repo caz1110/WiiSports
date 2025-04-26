@@ -1,0 +1,662 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="rtwreport.css" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>
+High-level Resource Utilization Report for broadwayIPC_2024b
+</title>
+
+</head>
+<body bgcolor="#ffffff" link="0033CC" vlink="#666666" onload="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdBillOfMaterials'); else local_onload();}} catch(err) {};hdlTableShrink(this, 'Adder_1_1');hdlTableShrink(this, 'Subtractor_1_1');hdlTableShrink(this, 'Subtractor_1_2');hdlTableShrink(this, 'Register_1_1');hdlTableShrink(this, 'Register_1_2');hdlTableShrink(this, 'Register_1_3');hdlTableShrink(this, 'Multiplexer_1_1');hdlTableShrink(this, 'Multiplexer_1_2');hdlTableShrink(this, 'Multiplexer_1_3');hdlTableShrink(this, 'Static Shift Right_1_1');hdlTableShrink(this, 'Input_Port');hdlTableShrink(this, 'Output_Port');">
+<script>
+<!--
+function hdlTableShrink(o,tagNameStr)
+{
+var temp = document.getElementsByName(tagNameStr);
+if (temp[0].style.display == "")
+{
+	temp[0].style.display = "none";
+	o.innerHTML = '<span style="font-family:monospace">[+]</span>';
+}
+else
+{
+	temp[0].style.display = "";
+	o.innerHTML = '<span style="font-family:monospace">[-]</span>';
+}
+}
+// -->
+</script>
+<script>
+<!--
+function hdlTableCollapseAll(o, numNtks, numComps)
+{
+	var id = "";
+	for (i = 1; i <= numNtks; i++)
+	{
+		for (j = 1; j <= numComps; j++)
+		{
+			id = "Multiply" + "_" + i + "_" + j;
+			var temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "none";
+			}
+			id = "Adder" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "none";
+			}
+			id = "Subtractor" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "none";
+			}
+			id = "Register" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "none";
+			}
+			id = "RAM" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "none";
+			}
+			id = "Multiplexer" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "none";
+			}
+		}
+	}
+	var collapsibles = document.getElementsByName('collapsible');
+	for (i = 0; i < collapsibles.length; i++)
+	{
+		collapsibles[i].innerHTML = '<span style="font-family:monospace">[+]</span>';
+	}
+}
+// -->
+</script>
+<script>
+<!--
+function hdlTableExpandAll(o, numNtks, numComps)
+{
+	var id = "";
+	for (i = 1; i <= numNtks; i++)
+	{
+		for (j = 1; j <= numComps; j++)
+		{
+			id = "Multiply" + "_" + i + "_" + j;
+			var temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "";
+			}
+			id = "Adder" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "";
+			}
+			id = "Subtractor" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "";
+			}
+			id = "Register" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "";
+			}
+			id = "RAM" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "";
+			}
+			id = "Multiplexer" + "_" + i + "_" + j;
+			temp = document.getElementsByName(id);
+			if (temp != null && temp.length > 0)
+			{
+				temp[0].style.display = "";
+			}
+		}
+	}
+	var collapsibles = document.getElementsByName('collapsible');
+	for (i = 0; i < collapsibles.length; i++)
+	{
+		collapsibles[i].innerHTML = '<span style="font-family:monospace">[-]</span>';
+	}
+}
+// -->
+</script>
+<font SIZE="+2" COLOR="#000066">
+Generic Resource Report for broadwayIPC_2024b
+</font>
+<br /><br /><br /><a name="Summary">
+<font size="+1" color="#000066">
+<b class="midprod">
+Summary
+</b>
+
+</font>
+
+</a>
+<br /><br /><table width="100%" border="1">
+<tr style="background-color: #eeeeff">
+<td align="left" valign="top" style="border-style: none">
+Multipliers
+</td>
+<td align="center" valign="top" style="border-style: none">
+0
+</td>
+
+</tr>
+<tr style="background-color: #ffffff">
+<td align="left" valign="top" style="border-style: none">
+Adders/Subtractors
+</td>
+<td align="center" valign="top" style="border-style: none">
+8
+</td>
+
+</tr>
+<tr style="background-color: #eeeeff">
+<td align="left" valign="top" style="border-style: none">
+Registers
+</td>
+<td align="center" valign="top" style="border-style: none">
+41
+</td>
+
+</tr>
+<tr style="background-color: #ffffff">
+<td align="left" valign="top" style="border-style: none">
+Total 1-Bit Registers
+</td>
+<td align="center" valign="top" style="border-style: none">
+100
+</td>
+
+</tr>
+<tr style="background-color: #eeeeff">
+<td align="left" valign="top" style="border-style: none">
+RAMs
+</td>
+<td align="center" valign="top" style="border-style: none">
+0
+</td>
+
+</tr>
+<tr style="background-color: #ffffff">
+<td align="left" valign="top" style="border-style: none">
+Multiplexers
+</td>
+<td align="center" valign="top" style="border-style: none">
+6
+</td>
+
+</tr>
+<tr style="background-color: #eeeeff">
+<td align="left" valign="top" style="border-style: none">
+I/O Bits
+</td>
+<td align="center" valign="top" style="border-style: none">
+142
+</td>
+
+</tr>
+<tr style="background-color: #ffffff">
+<td align="left" valign="top" style="border-style: none">
+Static Shift operators
+</td>
+<td align="center" valign="top" style="border-style: none">
+3
+</td>
+
+</tr>
+<tr style="background-color: #eeeeff">
+<td align="left" valign="top" style="border-style: none">
+Dynamic Shift operators
+</td>
+<td align="center" valign="top" style="border-style: none">
+0
+</td>
+
+</tr>
+
+</table>
+<br /><br /><a name="Detailed Report">
+<font size="+1" color="#000066">
+<b class="midprod">
+Detailed Report
+</b>
+
+</font>
+
+</a>
+<br /><br /><p><hr /></p><h5>
+Report for Subsystem:    <a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11387')" name="code2model" class="code2model">
+conv_core
+</a>
+
+</h5>
+<h5>
+Adders/Subtractors (8)
+</h5>
+<span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Adder_1_1')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+8x8-bit Adder 							: 2
+</span>
+<span name="Adder_1_1" id="Adder_1_1">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('gm_broadwayIPC_2024b:45')" name="code2model" class="code2model">
+Sum_stage2
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11939')" name="code2model" class="code2model">
+Sum_stage3
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Subtractor_1_1')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+9x9-bit Subtractor 							: 3
+</span>
+<span name="Subtractor_1_1" id="Subtractor_1_1">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11885')" name="code2model" class="code2model">
+Subtract2
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11886')" name="code2model" class="code2model">
+Subtract3
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11887')" name="code2model" class="code2model">
+Subtract4
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Subtractor_1_2')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+10-bit Subtractor 							: 3
+</span>
+<span name="Subtractor_1_2" id="Subtractor_1_2">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11872')" name="code2model" class="code2model">
+Abs2
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11873')" name="code2model" class="code2model">
+Abs3
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11874')" name="code2model" class="code2model">
+Abs4
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><h5>
+Registers (41)
+</h5>
+<span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Register_1_1')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+9-bit Register 							: 3
+</span>
+<span name="Register_1_1" id="Register_1_1">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11941')" name="code2model" class="code2model">
+Delay
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11942')" name="code2model" class="code2model">
+Delay2
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11943')" name="code2model" class="code2model">
+Delay3
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Register_1_2')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+8-bit Register 							: 5
+</span>
+<span name="Register_1_2" id="Register_1_2">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11944')" name="code2model" class="code2model">
+Delay4
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11945')" name="code2model" class="code2model">
+Delay5
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11946')" name="code2model" class="code2model">
+Delay6
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11947')" name="code2model" class="code2model">
+Delay7
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11958')" name="code2model" class="code2model">
+Delay11
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Register_1_3')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+1-bit Register 							: 33
+</span>
+<span name="Register_1_3" id="Register_1_3">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11949')" name="code2model" class="code2model">
+Delay9
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11950')" name="code2model" class="code2model">
+Delay10
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11948')" name="code2model" class="code2model">
+Delay8
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><h5>
+Multiplexers (6)
+</h5>
+<span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Multiplexer_1_1')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+10-bit 2-to-1 Multiplexer 							: 3
+</span>
+<span name="Multiplexer_1_1" id="Multiplexer_1_1">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11872')" name="code2model" class="code2model">
+Abs2
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11873')" name="code2model" class="code2model">
+Abs3
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11874')" name="code2model" class="code2model">
+Abs4
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Multiplexer_1_2')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+1-bit 2-to-1 Multiplexer 							: 2
+</span>
+<span name="Multiplexer_1_2" id="Multiplexer_1_2">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11793')" name="code2model" class="code2model">
+Relational Operator
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11794')" name="code2model" class="code2model">
+Relational Operator1
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Multiplexer_1_3')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+8-bit 2-to-1 Multiplexer 							: 1
+</span>
+<span name="Multiplexer_1_3" id="Multiplexer_1_3">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11957')" name="code2model" class="code2model">
+Product
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><h5>
+Number of Shift operators (3)
+</h5>
+<span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Static Shift Right_1_1')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+Static Shift Right 							: 3
+</span>
+<span name="Static Shift Right_1_1" id="Static Shift Right_1_1">
+<ul>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11937')" name="code2model" class="code2model">
+Shift Arithmetic4
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11936')" name="code2model" class="code2model">
+Shift Arithmetic3
+</a>
+
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11938')" name="code2model" class="code2model">
+Shift Arithmetic5
+</a>
+
+</li>
+
+</ul>
+
+</span>
+<br /><h5>
+Number of I/O Bits (142)
+</h5>
+<span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Input_Port')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+Number of Input Bits: 72
+</span>
+<span name="Input_Port" id="Input_Port">
+<ul>
+<li>
+clk: 1 bit
+</li>
+<li>
+reset: 1 bit
+</li>
+<li>
+clk_enable: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11388')" name="code2model" class="code2model">
+Video_in
+</a>
+: 64 bits
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11390')" name="code2model" class="code2model">
+ctrl
+</a>
+: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11390')" name="code2model" class="code2model">
+ctrl
+</a>
+: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11390')" name="code2model" class="code2model">
+ctrl
+</a>
+: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11390')" name="code2model" class="code2model">
+ctrl
+</a>
+: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11390')" name="code2model" class="code2model">
+ctrl
+</a>
+: 1 bit
+</li>
+
+</ul>
+
+</span>
+<br /><span name="collapsible" id="collapsible" style="font-family:monospace" onclick="hdlTableShrink(this, 'Output_Port')" onmouseover="this.style.cursor = 'pointer'">
+[+]
+</span>
+<span style="font-family:monospace">
+Number of Output Bits: 70
+</span>
+<span name="Output_Port" id="Output_Port">
+<ul>
+<li>
+ce_out: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11729')" name="code2model" class="code2model">
+Video_out
+</a>
+: 64 bits
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11730')" name="code2model" class="code2model">
+valid_out
+</a>
+: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11730')" name="code2model" class="code2model">
+valid_out
+</a>
+: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11730')" name="code2model" class="code2model">
+valid_out
+</a>
+: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11730')" name="code2model" class="code2model">
+valid_out
+</a>
+: 1 bit
+</li>
+<li>
+<a href="matlab:coder.internal.code2model('broadwayIPC_2024b:11730')" name="code2model" class="code2model">
+valid_out
+</a>
+: 1 bit
+</li>
+
+</ul>
+
+</span>
+<br /><p><hr /></p>
+</body>
+
+</html>
