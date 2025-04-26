@@ -10,8 +10,17 @@ import numpy as np
 
 def detectContors(imageRGB):
     start = time.time()
+
     # Grab red channel only, assumed to already contain a binary mask (0 or 255)
-    mask = imageRGB[:, :, 2]
+    #mask = imageRGB[:, :, 2]
+
+    # Dynamically determine the channel with the most information
+    channels = [imageRGB[:, :, i] for i in range(3)]
+    channel_variances = [np.var(channel) for channel in channels]
+    selected_channel = np.argmax(channel_variances)
+    mask = channels[selected_channel]
+
+    print("Using channel {} for contour detection".format(selected_channel))
 
     # Ensure it's uint8 and contiguous in memory
     mask = np.ascontiguousarray(mask, dtype=np.uint8)
@@ -21,12 +30,12 @@ def detectContors(imageRGB):
     mask = cv2.erode(mask, kernel, iterations=2)
     mask = cv2.dilate(mask, kernel, iterations=1)
     
-    contours, hierarchy = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    #_, contours, hierarchy = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    #contours, hierarchy = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    _, contours, hierarchy = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     center = ()
     if contours:
-        #print("Contors found: {}".format(len(contours)))
+        print("Contors found: {}".format(len(contours)))
         c = max(contours, key=cv2.contourArea)
         (x, y), r = cv2.minEnclosingCircle(c)
         center = (int(x), int(y))
@@ -50,7 +59,7 @@ def calculateCoordinates(leftPixel, rightPixel, width, height):
 
     if not leftPixel or not rightPixel:
         print("No coordinates available for calculations!")
-        return None
+        return -1, -1, -1 # Error case
 
     leftPixel = np.array(leftPixel, dtype=np.float64)
     rightPixel = np.array(rightPixel, dtype=np.float64)
@@ -58,42 +67,43 @@ def calculateCoordinates(leftPixel, rightPixel, width, height):
     disparity_pixels = np.abs((leftPixel[0] - cx) - (rightPixel[0] - cx))
 
     if disparity_pixels < 1e-3:  # Prevent near-zero disparity issues
-        print("Disparity is too small for accurate depth calculation!")
-        return None
+        print("Disparity is too small for accurate z_position calculation!")
+        return -1, -1, -1 # Error case
 
     disparity = disparity_pixels * pixelSize
 
     z = (baseLine * focalLength) / disparity  # mm
-    depth = z / 1000.0  # Convert to meters
+    z_position = z / 1000.0  # Convert to meters
 
     x_position = ((leftPixel[0] - cx) * z * pixelSize) / focalLength / 1000.0  # m
     y_position = ((leftPixel[1] - cy) * z * pixelSize) / focalLength / 1000.0  # m
 
+    ''' Debugging output for pixel position of ball
     print(
         "XLeft: {:.3f}, " \
         "XRight: {:.3f}, " \
         "YLeft: {:.3f}, " \
         "YRight: {:.3f}".format(
     leftPixel[0], rightPixel[0], leftPixel[1], rightPixel[1]))
+    '''
 
     print(
-        "Disparity: {:.6f} mm, " \
-        "Z Position: {:.3f} m, " \
-        "X Position: {:.3f} m, " \
-        "Y Position: {:.3f} m".format(
-    disparity, depth, x_position, y_position))
+        "X Position: {:.3f}m, " \
+        "Y Position: {:.3f}m, " \
+        "Z Position: {:.3f}m".format(
+    x_position, y_position, z_position, ))
     
     print("calculateCoordinates took {:.2f} ms".format((time.time() - start) * 1000))
-    return depth
+    return x_position, y_position, z_position
 
 if __name__ == "__main__":
     leftImg = cv2.imread("leftProcessed.jpg")
-    rightImg = cv2.imread("rightProcessed.jpg")
+    rightImg = cv2.imread("differenceProcessed.jpg")
 
     center1 = detectContors(leftImg)
     center2 = detectContors(rightImg)
 
-    calculateCoordinates(center1, center2, leftImg.shape[1], leftImg.shape[0])
+    #calculateCoordinates(center1, center2, leftImg.shape[1], leftImg.shape[0])
 
     print("width: {}".format(leftImg.shape[1]))
     print("height: {}".format(leftImg.shape[0]))

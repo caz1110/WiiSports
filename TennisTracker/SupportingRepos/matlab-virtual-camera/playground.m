@@ -41,6 +41,7 @@ function [rgbOut, center] = detectContors(rgbImage)
 end
 
 
+
 redActivity   = nnz(imgLProcessed(:,:,1));
 greenActivity = nnz(imgLProcessed(:,:,2));
 blueActivity  = nnz(imgLProcessed(:,:,3));
