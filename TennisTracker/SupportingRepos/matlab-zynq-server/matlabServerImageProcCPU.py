@@ -49,14 +49,15 @@ def detectContors(imageRGB):
     print("detectContors took {:.2f} ms".format((time.time() - start) * 1000))
     return center
 
-def calculateCoordinates(leftPixel, rightPixel, width, height):
+def calculateCoordinates(leftPixel, rightPixel, width, height, baseLine, focalLength):
+
+    # Constant values based on image size and provided camera parameters
     start = time.time()
-    baseLine = 1000.0       # mm
-    focalLength = 5         # mm
     pixelSize = 0.006       # mm
     cx = width / 2.0        # Pixels
     cy = height / 2.0       # Pixels
 
+    # Error handling for no coordinates
     if not leftPixel or not rightPixel:
         print("No coordinates available for calculations!")
         return -1, -1, -1 # Error case
