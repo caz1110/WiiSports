@@ -83,30 +83,6 @@ function [leftImg, rightImg] = receiveImages(client)
     fprintf(1, "Processed Image Received");
 end
 
-function updateSnickerdoodleParam(client)
-    % Baseline & Focal Length
-    baseLine = 9.3064e+03;
-    focalLength = 313.6884;
-
-    write(client, '5');         % Signal start of transmission
-    flush(client);              % Ensure the command is sent immediately
-
-    % Create message
-    message = sprintf('%.4f,%.4f', baseLine, focalLength);
-    message_bytes = uint8(message);    % Convert to bytes
-
-    % Prefix with length
-    length_prefix = sprintf('%d:', numel(message_bytes));
-    full_message = [uint8(length_prefix), message_bytes];
-
-    % Send
-    write(client, full_message);
-    fprintf(1, "Values Sent (%d bytes)\n", length(full_message));
-
-    % Wait for acknowledgment
-    temp = read(client, 1);
-    fprintf(1, "Acknowledgement received: %d\n", temp);
-end
 
 % Image Resolution
 width = 752;
@@ -118,34 +94,32 @@ server_port = 9999;
 client = tcpclient(server_ip, server_port, "Timeout", 30);
 fprintf(1, "Connected to server\n");
 
-updateSnickerdoodleParam(client);
+for j = 1:5
+    write(client, '3');         % Signal start of transmission
+    flush(client);              % Ensure the command is sent immediately
 
-% for j = 1:5
-%     write(client, '3');         % Signal start of transmission
-%     flush(client);              % Ensure the command is sent immediately
-% 
-%     sendImage(client, 'leftBall.jpg', 'leftBaseline.jpg')
-%     sendImage(client, 'rightBall.jpg', 'rightBaseline.jpg')
-% 
-%     [leftProcessed, rightProcessed] = receiveImages(client);
-% 
-%     write(client, '4');         % Signal start of transmission
-%     flush(client);              % Ensure the command is sent immediately
-% 
-%     % Now read one double at a time
-%     currentTimeRaw = read(client, 8);
-%     currentTime = typecast(uint8(currentTimeRaw), 'double');
-% 
-%     xRaw = read(client, 8);
-%     x = typecast(uint8(xRaw), 'double');
-% 
-%     yRaw = read(client, 8);
-%     y = typecast(uint8(yRaw), 'double');
-% 
-%     zRaw = read(client, 8);
-%     z = typecast(uint8(zRaw), 'double');
-%     fprintf(1, "Current Time: %f, X: %f, Y: %f, Z: %f\n", currentTime, x, y, z);
-% end
+    sendImage(client, 'leftBall.jpg', 'leftBaseline.jpg')
+    sendImage(client, 'rightBall.jpg', 'rightBaseline.jpg')
+
+    [leftProcessed, rightProcessed] = receiveImages(client);
+
+    write(client, '4');         % Signal start of transmission
+    flush(client);              % Ensure the command is sent immediately
+    
+    % Now read one double at a time
+    currentTimeRaw = read(client, 8);
+    currentTime = typecast(uint8(currentTimeRaw), 'double');
+
+    xRaw = read(client, 8);
+    x = typecast(uint8(xRaw), 'double');
+
+    yRaw = read(client, 8);
+    y = typecast(uint8(yRaw), 'double');
+
+    zRaw = read(client, 8);
+    z = typecast(uint8(zRaw), 'double');
+    fprintf(1, "Current Time: %f, X: %f, Y: %f, Z: %f\n", currentTime, x, y, z);
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Send 'exit' command to close the server
@@ -153,6 +127,7 @@ updateSnickerdoodleParam(client);
 write(client, 'e');  % Signal server to close
 flush(client);          % Ensure the command is sent immediately
 fprintf(1, "Exit command sent to server. Closing connection.\n");
+
 % Close the connection
 clear client;
 
@@ -170,13 +145,13 @@ t.Padding = 'compact';
 % title('Left Original Image');
 % axis off;
 
-% % Display Left Processed
-% nexttile;
-% imagesc(leftProcessed(:, :, 1));
-% colormap gray;
-% title('Left Processed Scaled Red Channel');
-% axis off;
-% imwrite(leftProcessed, "leftProcessed.jpg");
+% Display Left Processed
+nexttile;
+imagesc(leftProcessed(:, :, 1));
+colormap gray;
+title('Left Processed Scaled Red Channel');
+axis off;
+imwrite(leftProcessed, "leftProcessed.jpg");
 
 % % Display Right Original
 % nexttile;
@@ -185,13 +160,13 @@ t.Padding = 'compact';
 % title('Right Original Image');
 % axis off;
 
-% % Display Right Processed
-% nexttile;
-% imagesc(rightProcessed(:, :, 1));
-% colormap gray;
-% title('Right Processed Scaled Red Channel');
-% axis off;
-% imwrite(rightProcessed, "rightProcessed.jpg");
+% Display Right Processed
+nexttile;
+imagesc(rightProcessed(:, :, 1));
+colormap gray;
+title('Right Processed Scaled Red Channel');
+axis off;
+imwrite(rightProcessed, "rightProcessed.jpg");
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % send ball and baseline frames

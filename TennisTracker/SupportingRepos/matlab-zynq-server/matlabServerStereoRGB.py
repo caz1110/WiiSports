@@ -1,7 +1,6 @@
-# Chris Zamora
+# Dr. Kaputa
 # Matlab Server
 from numpysocket import NumpySocket
-import socket
 import cv2
 import numpy as np
 import time
@@ -45,24 +44,16 @@ if simulink == True:
 
 print "entering main loop"
 
-# Main loop to handle incoming commands from Matlab
-# This loop will run until the user sends a kill command to close the socket
+# feel free to modify this command structue as you wish.  It might match the 
+# command structure that is setup in the Matlab side of things on the host PC.
 while(1):
-
-    # Initialize variables
-    init = True
-    if init:
-        baseLine = 1000.0 # mm
-        focalLength = 6   # mm
-        init = False
-    
     cmd = npSocket.receiveCmd()
     print("Received command: {}".format(cmd))
 
     # Command 0: Recieve frame from Matlab
     if cmd == '0':
         print("Attempting to recieve data...")
-        data = npSocket.receive(expect_full_frame=True)
+        data = npSocket.receive()
         print("Received data of size: {}".format(data.shape))
         camWriter.setFrame(data)
         npSocket.send(np.array(2))
@@ -77,7 +68,7 @@ while(1):
         npSocket.send(tempImageRight)
         print("Sent response for command '1'")
 
-    # Command 2: Process RGB frame from camera and send back (For Debugging)
+    # Command 9: Process RGB frame from camera and send back (For Debugging)
     elif cmd == '2':
         currentTime = time.time()
         differenceFrame, emptyFrame = camProcessed.getStereoRGB()
@@ -92,8 +83,6 @@ while(1):
 
         print("Sent response for command '2'")
 
-    # Command 3: Receive 4 images - Left, Right, & corresponding baseline images
-    # and send back the processed images.
     elif cmd == '3':
         # Grab current time for CoR Calculations
         currentTime = time.time()
@@ -101,7 +90,7 @@ while(1):
 
         # Left Frame Processing
         print("Attempting to get left frame data...")
-        data = npSocket.receive(expect_full_frame=True)
+        data = npSocket.receive()
         print("Received data of size: {}".format(data.shape))
         camWriter.setFrame(data)
         npSocket.send(np.array(2))
@@ -111,7 +100,7 @@ while(1):
 
         # Right Frame Processing
         print("Attempting to get right frame data...")
-        data = npSocket.receive(expect_full_frame=True)
+        data = npSocket.receive()
         print("Received data of size: {}".format(data.shape))
         camWriter.setFrame(data)
         npSocket.send(np.array(2))
@@ -126,15 +115,12 @@ while(1):
         print("Sent data of size: {}".format(rightFrame.shape))
 
         print("Processed stereo frames and sent data.")
-
-    # Command 4: Calculate coordinates based on contours detected in the frames
-    # and send the coordinates back to Matlab.
     elif cmd == '4':
         center1 = detectContors(leftFrame)
         center2 = detectContors(rightFrame)
         
         # Example coordinate calculation (uncomment when ready)
-        x, y, z = calculateCoordinates(center1, center2, leftFrame.shape[1], rightFrame.shape[0], baseLine, focalLength)
+        x, y, z = calculateCoordinates(center1, center2, leftFrame.shape[1], rightFrame.shape[0])
 
         # Send the time stamp & coordinates
         npSocket.send(np.array(currentTime, dtype=np.float64))
@@ -144,74 +130,12 @@ while(1):
 
         print("Calculated coordinates and sent data.")
 
-    elif cmd == '5':
-        print("Attempting to get calibration data...")
-
-        sock = npSocket.client_connection  # <-- IMPORTANT
-
-        # Step 1: Read until ':'
-        size_buffer = b''
-        while True:
-            byte = sock.recv(1)
-            if byte == b':':
-                break
-            size_buffer += byte
-
-        expected_size = int(size_buffer.decode('utf-8'))
-
-        # Step 2: Read exactly expected_size bytes
-        message_buffer = b''
-        while len(message_buffer) < expected_size:
-            chunk = sock.recv(expected_size - len(message_buffer))
-            if not chunk:
-                raise RuntimeError("Socket connection broken during calibration data receive.")
-            message_buffer += chunk
-
-        # Step 3: Decode and parse
-        decoded_str = message_buffer.decode('utf-8').strip()
-        baseline_str, focal_str = decoded_str.split(',')
-
-        baseLine = float(baseline_str)
-        focalLength = float(focal_str)
-
-        print("BaseLine: {:.4f} mm, FocalLength: {:.4f} mm".format(baseLine, focalLength))
-
-        # Step 4: Send simple ack
-        sock.send(b'2')
-
-    # Kill command: Close the socket and exit
     elif cmd == 'e':
         print("Exit command! Closing socket...")
         break
-
-    # Unknown command: Handle gracefully
     else:
         print("Unknown command: {}".format(cmd))
-
-        # Try to flush/clear the socket
-        try:
-            sock = npSocket.client_connection  # <-- use the correct socket!
-
-            sock.setblocking(0)  # Set socket to non-blocking mode temporarily
-            flushed_bytes = b''
-
-            while True:
-                try:
-                    chunk = sock.recv(4096)  # Read in chunks of 4096 bytes
-                    if not chunk:
-                        break
-                    flushed_bytes += chunk
-                except socket.error:
-                    break  # No more data to read
-                time.sleep(5)  # Small sleep to avoid busy waiting
-
-            sock.setblocking(1)  # Restore blocking mode
-            print("Flushed leftover data of size: {}".format(len(flushed_bytes)))
-
-        except Exception as e:
-            print("Error while flushing socket: {}".format(e))
-
-    time.sleep(0.5)  # Small sleep to avoid hammering the CPU
+        time.sleep(5) # Sleep for a bit to avoid busy waiting
 
 npSocket.close()
 print("Socket server closed.")
