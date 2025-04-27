@@ -1,85 +1,121 @@
-function e_mean = measureCOR(app, objectName, varargin)
-% measureCOR  Compute coefficient-of-restitution (COR) from Blender
-%
-%   e_mean = measureCOR(app,"Ball",'Axes',app.CORAxes,'PrintN',4)
-%
-%   All heights are handled/displayed in **meters** by default.
+% ===============================================================
+% measureCOR.m   —  Single-surface COR measurement & visualisation
+% ---------------------------------------------------------------
+% • Plots the bounce trajectory in app.CORAxes (if provided) or
+%   a standalone figure.
+% • Streams the pose to Blender via blenderLink.m (if socket open).
+% • Fills app.CORTable with 3 columns:  bounce # | velocity | E
+% • Returns a results struct for scripts or tests.
+% ---------------------------------------------------------------
+% USAGE EXAMPLE (inside an App Designer callback)
+%   surface = app.SurfaceDropDown.Value;   % "clay","grass","hard"
+%   measureCOR(surface, app);              % updates GUI automatically
+% ===============================================================
+function results = measureCOR(surface, app, Nprint, ...
+                              blenderPort, blenderIP)
 
-% ── Options ────────────────────────────────────────────────────────────
-p = inputParser;
-addRequired (p,'app');
-addRequired (p,'objectName',@(s)ischar(s)||isstring(s));
-addParameter(p,'Host',     "127.0.0.1");
-addParameter(p,'Port',     55001,@(x)isscalar(x)&&x>0);
-addParameter(p,'SimTime',  10,@(x)x>0);
-addParameter(p,'NBounces', 4,@(x)x>=1);
-addParameter(p,'Units',    "m",@(s)any(strcmpi(s,["m","in"])));
-addParameter(p,'Plot',     true);
-addParameter(p,'Axes',     [],@(h)isempty(h)||isgraphics(h,'axes'));
-addParameter(p,'PrintN',   4,@(x)x>=1);
-parse(p,app,objectName,varargin{:});
-o = p.Results;
+% ----------------------------- OPTIONS -------------------------
+if nargin < 2, app         = [];           end
+if nargin < 3, Nprint      = 4;            end
+if nargin < 4, blenderPort = 5000;         end
+if nargin < 5, blenderIP   = "127.0.0.1";  end
 
-toInches = strcmpi(o.Units,"in");
-Nprint = o.PrintN;
+g = 9.81;      % gravity [m/s²]
+h0 = 2.54;      % release height [m]
+dt = 0.005;     % integration step [s]
+hMinStop  = 0.01;      % stop when rebound < 1 cm
 
+courtDict = struct('clay',0.78,'grass',0.72,'hard',0.85);
+surface = lower(string(surface));
+
+assert(isfield(courtDict,surface), "Surface must be 'clay', 'grass', or 'hard'.");
+eNominal = courtDict.(surface);
+
+% --------------------------- AXES SETUP ------------------------
+if ~isempty(app) && isprop(app,'CORAxes') && isgraphics(app.CORAxes)
+    ax = app.CORAxes;
+    cla(ax); hold(ax,'on'); grid(ax,'on');
+else
+    fig = figure('Name','Coefficient of Restitution');
+    ax  = axes(fig); hold(ax,'on'); grid(ax,'on');
+end
+
+title(ax,"COR – "+upper(surface));
+xlabel(ax,'Time [s]'); ylabel(ax,'Height [m]');
+ylim(ax,[0 h0*1.1]); xlim(ax,[0 5]);
+
+hLine = animatedline(ax,'LineWidth',1.8,'DisplayName',surface);
+
+% ----------------------- BLENDER SOCKET ------------------------
 try
-    cli = tcpclient(o.Host,o.Port,"Timeout",20);
-catch ME
-    uiwarn(app,"Could not connect:\n%s",ME.message); e_mean = NaN; return
+    bClient = tcpclient(blenderIP,blenderPort);
+catch
+    bClient = [];
 end
-write(cli,uint8("STREAM_Z:"+string(o.objectName)));
+frameW = 640; frameH = 480;
 
-buf = []; tic
-while toc < o.SimTime
-    n = cli.NumBytesAvailable;
-    if n>=8, buf=[buf; read(cli,n,"single")];
-    else, pause(0.01); end
+% ---------------------- MAIN SIMULATION ------------------------
+h = h0; v = 0; t = 0; bounce = 0;
+data = [];  % rows: [bounce, v_before, h_apex]
+
+while true
+    pause(dt);                % keeps UI responsive
+    v = v - g*dt;
+    h = h + v*dt;
+    t = t + dt;
+
+    % Send pose to Blender every frame (if connected)
+    if ~isempty(bClient) && isvalid(bClient)
+        blenderLink(bClient,frameW,frameH, 0,0,h,0,0,0,"tennisBall");
+    end
+    addpoints(hLine,t,h);
+
+    % Impact with court?
+    if h <= 0
+        bounce = bounce + 1;
+        v_pre  = v;            % velocity just before impact
+        v = -eNominal*v;  % rebound velocity
+        h_apex = (v^2)/(2*g);  % next peak height
+        data(end+1,:) = [bounce, abs(v_pre), h_apex];
+
+        % Optional console printout
+        if bounce <= Nprint
+            fprintf('Bounce %2d | v_before = %6.3f m/s | h_next = %.3f m\n', bounce, abs(v_pre), h_apex);
+        end
+
+        if h_apex < hMinStop
+            break            % stop when rebound is negligible
+        end
+        h = 0;               % reset to ground
+    end
 end
-clear cli
-if isempty(buf), uiwarn(app,"No data."); e_mean=NaN; return, end
 
-t = buf(1:2:end);
-z = buf(2:2:end);
-if toInches, z = z*39.3701; end
-
-[pks,locs] = findpeaks(z,'MinPeakProminence',max(0.02*range(z),0.01), 'MinPeakDistance',0.2*mean(diff(t)));
-pks  = pks(1:min(end,o.NBounces+1));
-locs = locs(1:end);
-e = sqrt(pks(2:end)./pks(1:end-1));
-e_mean = mean(e);
-
-g = 9.81;
-h_before = pks(1:end-1);
-if toInches, h_before = h_before/39.3701; end
-v_before = sqrt(2*g*h_before);
-
-fprintf('\nImpact velocities & COR (first %d bounces):\n',min(Nprint,numel(e)));
-for i=1:min(Nprint,numel(e))
-    fprintf('  Bounce %d | v = %5.2f m/s | e = %.3f\n',i,v_before(i),e(i));
+% -------------- Compute measured e for each rebound -------------
+if size(data,1) >= 2
+    eMeasured = sqrt(data(2:end,3) ./ data(1:end-1,3));
+else
+    eMeasured = [];
 end
-fprintf('------------------------------------------------\n');
+eAvg = mean(eMeasured);
+
+fprintf('----------------------------------------------\n');
+fprintf('Average measured e = %.4f\n', eAvg);
+
+% -------------- Push results into GUI table (3 cols) ------------
+BounceCol   = data(1:end-1,1);
+VelocityCol = data(1:end-1,2);
+Ecol        = eMeasured;
 
 if ~isempty(app) && isprop(app,'CORTable') && isgraphics(app.CORTable)
-    rows = min(Nprint,numel(e));
-    T    = table((1:rows).',v_before(1:rows).',e(1:rows).','VariableNames',{'Bounce','Velocity_mps','e'});
-    app.CORTable.Data = T;
-end
-if ~isempty(app) && isprop(app,'lblResult')
-    app.lblResult.Text = sprintf('COR = %.3f',e_mean);
+    app.CORTable.Data       = [BounceCol, VelocityCol, Ecol];
+    app.CORTable.ColumnName = {'Bounce #','Velocity','E'};
+else
+    disp(table(BounceCol,VelocityCol,Ecol, ...
+        'VariableNames',{'Bounce #','Velocity','E'}));
 end
 
-if o.Plot
-    ax = o.Axes;
-    if isempty(ax)||~isgraphics(ax,'axes')
-        ax = axes('Parent',figure('Name','COR measurement'));
-    end
-    cla(ax); hold(ax,'on');
-    plot(ax,t,z,'k','LineWidth',1);
-    plot(ax,t(locs),pks,'ro','MarkerFaceColor','r');
-    xlabel(ax,'Time (s)');
-    ylabel(ax,sprintf('Height (%s)',o.Units));
-    title(ax,sprintf('Bounce profile – mean e = %.3f',e_mean));
-    grid(ax,'on'); hold(ax,'off');
-end
-end
+% -------------- Return struct for scripts/tests -----------------
+results = struct('surface',surface,'nominal_e',eNominal, ...
+                 'bounces',data,'e_measured',eMeasured, ...
+                 'e_average',eAvg);
+end  % ========================= END OF measureCOR ===============

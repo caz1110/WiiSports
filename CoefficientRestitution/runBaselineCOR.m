@@ -58,7 +58,9 @@ end
 fprintf('----------------------------------------------------\n');
 
 if ~isempty(app) && isprop(app,'CORTable') && isgraphics(app.CORTable)
-    app.CORTable.Data = table(rowsSurf,rowsBounce,rowsVel,rowsE,'VariableNames',{'Surface','Bounce','Velocity_mps','e'});
+    app.CORTable.Data = table(rowsSurf,rowsBounce,rowsVel,rowsE, ...
+        'VariableNames',{'surface','bounce #','velocity','E'});   % <-- keeps headers in data
+    app.CORTable.ColumnName = {'surface','bounce #','velocity','E'}; % <-- NEW
 end
 
 h = h0*ones(numel(e_vals),1);  v = zeros(numel(e_vals),1);
