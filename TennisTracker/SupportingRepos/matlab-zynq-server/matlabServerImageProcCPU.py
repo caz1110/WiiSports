@@ -12,15 +12,14 @@ def detectContors(imageRGB):
     start = time.time()
 
     # Grab red channel only, assumed to already contain a binary mask (0 or 255)
-    #mask = imageRGB[:, :, 2]
+    mask = imageRGB[:, :, 0]
 
     # Dynamically determine the channel with the most information
-    channels = [imageRGB[:, :, i] for i in range(3)]
-    channel_variances = [np.var(channel) for channel in channels]
-    selected_channel = np.argmax(channel_variances)
-    mask = channels[selected_channel]
-
-    print("Using channel {} for contour detection".format(selected_channel))
+    #channels = [imageRGB[:, :, i] for i in range(3)]
+    #channel_variances = [np.var(channel) for channel in channels]
+    #selected_channel = np.argmax(channel_variances)
+    #mask = channels[selected_channel]
+    #print("Using channel {} for contour detection".format(selected_channel))
 
     # Ensure it's uint8 and contiguous in memory
     mask = np.ascontiguousarray(mask, dtype=np.uint8)
@@ -39,8 +38,7 @@ def detectContors(imageRGB):
         c = max(contours, key=cv2.contourArea)
         (x, y), r = cv2.minEnclosingCircle(c)
         center = (int(x), int(y))
-        #print("Radius value: {}".format(r))
-        #print("Center value: {}".format(center))
+        print("Center value: {}".format(center))
     else:
         print("No contours found!")
         center = (-1, -1)
@@ -104,7 +102,7 @@ if __name__ == "__main__":
     center1 = detectContors(leftImg)
     center2 = detectContors(rightImg)
 
-    #calculateCoordinates(center1, center2, leftImg.shape[1], leftImg.shape[0])
+    calculateCoordinates(center1, center2, leftImg.shape[1], leftImg.shape[0], 1000, 6.0)
 
     print("width: {}".format(leftImg.shape[1]))
     print("height: {}".format(leftImg.shape[0]))

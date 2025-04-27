@@ -43,6 +43,23 @@ if simulink == True:
     simulinkMem.seek(4) 
     simulinkMem.write(struct.pack('l', 1))       # enable IP core
 
+def flushSocket(sock):
+    try:
+        sock.setblocking(0)
+        flushed_bytes = b''
+        while True:
+            try:
+                chunk = sock.recv(4096)
+                if not chunk:
+                    break
+                flushed_bytes += chunk
+            except socket.error:
+                break
+        sock.setblocking(1)
+        print("Flushed leftover data of size: {}".format(len(flushed_bytes)))
+    except Exception as e:
+        print("Error while flushing socket: {}".format(e))
+
 print "entering main loop"
 
 # Main loop to handle incoming commands from Matlab
@@ -58,11 +75,14 @@ while(1):
     
     cmd = npSocket.receiveCmd()
     print("Received command: {}".format(cmd))
+    if cmd is None:
+        print("Client disconnected.")
+        #break
 
     # Command 0: Recieve frame from Matlab
     if cmd == '0':
         print("Attempting to recieve data...")
-        data = npSocket.receive(expect_full_frame=True)
+        data = npSocket.receive()
         print("Received data of size: {}".format(data.shape))
         camWriter.setFrame(data)
         npSocket.send(np.array(2))
@@ -101,28 +121,40 @@ while(1):
 
         # Left Frame Processing
         print("Attempting to get left frame data...")
-        data = npSocket.receive(expect_full_frame=True)
+        data = npSocket.receive()
         print("Received data of size: {}".format(data.shape))
         camWriter.setFrame(data)
+        camWriter.setFrame(data)
         npSocket.send(np.array(2))
-        print("Sent response for command '0'")
+        print("Left Acknowledged")
+
+        leftOriginal, frameBaseline = camFeedthrough.getStereoRGB()
         leftFrame, emptyFrame = camProcessed.getStereoRGB()
+
+        leftOriginal = np.ascontiguousarray(leftOriginal, dtype=np.uint8)
         leftFrame = np.ascontiguousarray(leftFrame, dtype=np.uint8)
+        cv2.imwrite("leftProcessed.jpg", leftFrame)
 
         # Right Frame Processing
         print("Attempting to get right frame data...")
-        data = npSocket.receive(expect_full_frame=True)
+        data = npSocket.receive()
         print("Received data of size: {}".format(data.shape))
         camWriter.setFrame(data)
+        camWriter.setFrame(data)
         npSocket.send(np.array(2))
-        print("Sent response for command '0'")
+        print("Right Acknowledged")
+
+        rightOriginal, frameBaseline = camFeedthrough.getStereoRGB()
         rightFrame, emptyFrame = camProcessed.getStereoRGB()
+
+        rightOriginal = np.ascontiguousarray(rightOriginal, dtype=np.uint8)
         rightFrame = np.ascontiguousarray(rightFrame, dtype=np.uint8)
+        cv2.imwrite("rightProcessed.jpg", rightFrame)
 
         # Send the frames
-        npSocket.send(leftFrame)
+        npSocket.send(leftOriginal)
         print("Sent data of size: {}".format(leftFrame.shape))
-        npSocket.send(rightFrame)
+        npSocket.send(rightOriginal)
         print("Sent data of size: {}".format(rightFrame.shape))
 
         print("Processed stereo frames and sent data.")
@@ -181,37 +213,17 @@ while(1):
 
     # Kill command: Close the socket and exit
     elif cmd == 'e':
-        print("Exit command! Closing socket...")
+        print("Exit command! Client requested to close the socket.")
         break
 
     # Unknown command: Handle gracefully
     else:
         print("Unknown command: {}".format(cmd))
+        flushSocket(npSocket.client_connection)
+        time.sleep(5)
 
-        # Try to flush/clear the socket
-        try:
-            sock = npSocket.client_connection  # <-- use the correct socket!
-
-            sock.setblocking(0)  # Set socket to non-blocking mode temporarily
-            flushed_bytes = b''
-
-            while True:
-                try:
-                    chunk = sock.recv(4096)  # Read in chunks of 4096 bytes
-                    if not chunk:
-                        break
-                    flushed_bytes += chunk
-                except socket.error:
-                    break  # No more data to read
-                time.sleep(5)  # Small sleep to avoid busy waiting
-
-            sock.setblocking(1)  # Restore blocking mode
-            print("Flushed leftover data of size: {}".format(len(flushed_bytes)))
-
-        except Exception as e:
-            print("Error while flushing socket: {}".format(e))
-
-    time.sleep(0.5)  # Small sleep to avoid hammering the CPU
+    print("\n")
 
 npSocket.close()
 print("Socket server closed.")
+        

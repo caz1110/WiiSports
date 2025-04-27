@@ -140,4 +140,7 @@ class NumpySocket():
         if(self.client_connection):
             socket = self.client_connection
         data = socket.recv(1)
+        if not data:
+            # No data means client closed connection
+            return None
         return data
