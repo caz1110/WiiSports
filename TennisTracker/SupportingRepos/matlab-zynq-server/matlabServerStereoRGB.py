@@ -153,9 +153,9 @@ while(1):
 
         # Send the frames
         npSocket.send(leftOriginal)
-        print("Sent data of size: {}".format(leftFrame.shape))
+        print("Sent data of size: {}".format(leftOriginal.shape))
         npSocket.send(rightOriginal)
-        print("Sent data of size: {}".format(rightFrame.shape))
+        print("Sent data of size: {}".format(rightOriginal.shape))
 
         print("Processed stereo frames and sent data.")
 
@@ -210,6 +210,54 @@ while(1):
 
         # Step 4: Send simple ack
         sock.send(b'2')
+
+
+    # Command 3: Receive 4 images - Left, Right, & corresponding baseline images
+    # and send back the processed images.
+    elif cmd == '6':
+        # Grab current time for CoR Calculations
+        currentTime = time.time()
+        print(currentTime)
+
+        # Left Frame Processing
+        print("Attempting to get left frame data...")
+        data = npSocket.receive()
+        print("Received data of size: {}".format(data.shape))
+        camWriter.setFrame(data)
+        camWriter.setFrame(data)
+        npSocket.send(np.array(2))
+        print("Left Acknowledged")
+
+        leftOriginal, frameBaseline = camFeedthrough.getStereoRGB()
+        leftFrame, emptyFrame = camProcessed.getStereoRGB()
+
+        leftOriginal = np.ascontiguousarray(leftOriginal, dtype=np.uint8)
+        leftFrame = np.ascontiguousarray(leftFrame, dtype=np.uint8)
+        cv2.imwrite("leftProcessed.jpg", leftFrame)
+
+        # Right Frame Processing
+        print("Attempting to get right frame data...")
+        data = npSocket.receive()
+        print("Received data of size: {}".format(data.shape))
+        camWriter.setFrame(data)
+        camWriter.setFrame(data)
+        npSocket.send(np.array(2))
+        print("Right Acknowledged")
+
+        rightOriginal, frameBaseline = camFeedthrough.getStereoRGB()
+        rightFrame, emptyFrame = camProcessed.getStereoRGB()
+
+        rightOriginal = np.ascontiguousarray(rightOriginal, dtype=np.uint8)
+        rightFrame = np.ascontiguousarray(rightFrame, dtype=np.uint8)
+        cv2.imwrite("rightProcessed.jpg", rightFrame)
+
+        # Send the frames
+        npSocket.send(leftFrame)
+        print("Sent data of size: {}".format(leftFrame.shape))
+        npSocket.send(rightFrame)
+        print("Sent data of size: {}".format(rightFrame.shape))
+
+        print("Processed stereo frames and sent data.")
 
     # Kill command: Close the socket and exit
     elif cmd == 'e':

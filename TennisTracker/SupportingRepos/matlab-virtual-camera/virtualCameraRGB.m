@@ -184,112 +184,112 @@ t = tiledlayout(2, 2, 'Padding', 'none', 'TileSpacing', 'compact');
 t.TileSpacing = 'compact';
 t.Padding = 'compact';
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% send ball and baseline frames
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-imageBool = false;
-for j = 1:8
-    write(client, '0');         % Signal start of transmission
-    flush(client);              % Ensure the command is sent immediately
-
-    if imageBool
-        % Right Ball & Baseline
-        dataBall = imread('rightBall.jpg');
-        dataBaseline = imread('rightBaseline.jpg');
-    else
-        % Left Ball & Baseline
-        dataBall = imread('leftBall.jpg');
-        dataBaseline = imread('leftBaseline.jpg');
-    end
-
-    dataBall = imresize(dataBall, [height width]);
-    dataBaseline = imresize(dataBaseline, [height width]);
-
-    % 8-BIT FORMATTING
-    dataBall = uint8(dataBall);
-    dataBaseline = uint8(dataBaseline);
-
-    % Image labeling for loop itteration identification during debugging
-    dataBall = insertText(dataBall,[100 100],j,FontSize=42);
-
-    % Grayscale channel calculations
-    dataGrayBall = im2gray(dataBall);
-    dataGrayBaseline = im2gray(dataBaseline);
-
-    % Prepare 64-bit pixel bus formatting
-    imageStack = uint8(ones(height, width, 8));
-    imageStack(:, :, 1:3) = dataBall;        % Channels 1–3: RGB of Ball image
-    imageStack(:, :, 4) = dataGrayBall;      % Channel 4: Gray Ball
-    imageStack(:, :, 5:7) = dataBaseline;    % Channels 5–7: RGB of Baseline
-    imageStack(:, :, 8) = dataGrayBaseline;  % Channel 8: Gray Baseline
-
-    % Reorder to [channel, column, row] for the hardware
-    imageStack = permute(imageStack,[3 2 1]);
-    write(client,imageStack(:));
-    temp = read(client,1);
-
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % receive processed frames from snickerdoodle
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    if j < 4
-        % receive feedthrough frame
-        write(client, '1');
-        flush(client);
-
-    % NOTE: Binarized image stored within red channel
-        if imageBool
-            % Right Image
-            dataRight = read(client, width * height * 3);
-            temp = reshape(dataRight, [3, width, height]);
-            imgRFeedthrough = permute(temp, [3 2 1]);
-            colormap gray;
-            imagesc(imgRFeedthrough);
-        else
-            % Left Image
-            dataLeft = read(client, width * height * 3);
-            temp = reshape(dataLeft, [3, width, height]);
-            imgLFeedthrough = permute(temp, [3 2 1]);
-            colormap gray;
-            imagesc(imgLFeedthrough);
-        end
-
-        % Clear image buffer
-        dataBlank = read(client, width * height * 3);
-    else
-        % receive processed frame
-        write(client, '2');
-        flush(client);
-
-        if imageBool
-            % Right Image
-            dataRight = read(client, width * height * 3);
-            temp = reshape(dataRight, [3, width, height]);
-            imgRProcessed = permute(temp, [3 2 1]);
-            colormap gray;
-            imagesc(imgRProcessed(:, :, 1));
-        else
-            % Left Image
-            dataLeft = read(client, width * height * 3);
-            temp = reshape(dataLeft, [3, width, height]);
-            imgLProcessed = permute(temp, [3 2 1]);
-            colormap gray;
-            imagesc(imgLProcessed(:, :, 1));
-        end
-        fprintf(1, "Processed Image Recieved: %d\n", j);
-
-        % Clear image buffer
-        dataBlank = read(client, width * height * 3);
-        fprintf(1, "Image Buffer Cleared\n");
-    end
-
-    % Flip between L/R side using bool
-    imageBool = not(imageBool);
-
-    pause(100 / 1000);
-end
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % send ball and baseline frames
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% imageBool = false;
+% for j = 1:8
+%     write(client, '0');         % Signal start of transmission
+%     flush(client);              % Ensure the command is sent immediately
+% 
+%     if imageBool
+%         % Right Ball & Baseline
+%         dataBall = imread('rightBall.jpg');
+%         dataBaseline = imread('rightBaseline.jpg');
+%     else
+%         % Left Ball & Baseline
+%         dataBall = imread('leftBall.jpg');
+%         dataBaseline = imread('leftBaseline.jpg');
+%     end
+% 
+%     dataBall = imresize(dataBall, [height width]);
+%     dataBaseline = imresize(dataBaseline, [height width]);
+% 
+%     % 8-BIT FORMATTING
+%     dataBall = uint8(dataBall);
+%     dataBaseline = uint8(dataBaseline);
+% 
+%     % Image labeling for loop itteration identification during debugging
+%     dataBall = insertText(dataBall,[100 100],j,FontSize=42);
+% 
+%     % Grayscale channel calculations
+%     dataGrayBall = im2gray(dataBall);
+%     dataGrayBaseline = im2gray(dataBaseline);
+% 
+%     % Prepare 64-bit pixel bus formatting
+%     imageStack = uint8(ones(height, width, 8));
+%     imageStack(:, :, 1:3) = dataBall;        % Channels 1–3: RGB of Ball image
+%     imageStack(:, :, 4) = dataGrayBall;      % Channel 4: Gray Ball
+%     imageStack(:, :, 5:7) = dataBaseline;    % Channels 5–7: RGB of Baseline
+%     imageStack(:, :, 8) = dataGrayBaseline;  % Channel 8: Gray Baseline
+% 
+%     % Reorder to [channel, column, row] for the hardware
+%     imageStack = permute(imageStack,[3 2 1]);
+%     write(client,imageStack(:));
+%     temp = read(client,1);
+% 
+%     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     % receive processed frames from snickerdoodle
+%     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     if j < 4
+%         % receive feedthrough frame
+%         write(client, '1');
+%         flush(client);
+% 
+%     % NOTE: Binarized image stored within red channel
+%         if imageBool
+%             % Right Image
+%             dataRight = read(client, width * height * 3);
+%             temp = reshape(dataRight, [3, width, height]);
+%             imgRFeedthrough = permute(temp, [3 2 1]);
+%             colormap gray;
+%             imagesc(imgRFeedthrough);
+%         else
+%             % Left Image
+%             dataLeft = read(client, width * height * 3);
+%             temp = reshape(dataLeft, [3, width, height]);
+%             imgLFeedthrough = permute(temp, [3 2 1]);
+%             colormap gray;
+%             imagesc(imgLFeedthrough);
+%         end
+% 
+%         % Clear image buffer
+%         dataBlank = read(client, width * height * 3);
+%     else
+%         % receive processed frame
+%         write(client, '2');
+%         flush(client);
+% 
+%         if imageBool
+%             % Right Image
+%             dataRight = read(client, width * height * 3);
+%             temp = reshape(dataRight, [3, width, height]);
+%             imgRProcessed = permute(temp, [3 2 1]);
+%             colormap gray;
+%             imagesc(imgRProcessed(:, :, 1));
+%         else
+%             % Left Image
+%             dataLeft = read(client, width * height * 3);
+%             temp = reshape(dataLeft, [3, width, height]);
+%             imgLProcessed = permute(temp, [3 2 1]);
+%             colormap gray;
+%             imagesc(imgLProcessed(:, :, 1));
+%         end
+%         fprintf(1, "Processed Image Recieved: %d\n", j);
+% 
+%         % Clear image buffer
+%         dataBlank = read(client, width * height * 3);
+%         fprintf(1, "Image Buffer Cleared\n");
+%     end
+% 
+%     % Flip between L/R side using bool
+%     imageBool = not(imageBool);
+% 
+%     pause(100 / 1000);
+% end
 
 for j = 1:2
-    write(client, '3');         % Signal start of transmission
+    write(client, '6');         % Signal start of transmission
     flush(client);              % Ensure the command is sent immediately
 
     sendImage(client, 'leftBall.jpg', 'leftBaseline.jpg')
@@ -337,7 +337,7 @@ axis off;
 % Display Left Processed
 nexttile;
 imagesc(leftProcessed(:, :, 1));
-colormap default;
+colormap gray;
 title('Left Processed Scaled Red Channel');
 axis off;
 imwrite(leftProcessed, "leftProcessed.jpg");
@@ -352,7 +352,7 @@ axis off;
 % Display Right Processed
 nexttile;
 imagesc(rightProcessed(:, :, 1));
-colormap default;
+colormap gray;
 title('Right Processed Scaled Red Channel');
 axis off;
 imwrite(rightProcessed, "rightProcessed.jpg");
