@@ -1,12 +1,13 @@
 # Author: Christopher Zamora
-# Project: ESDII Lab 4 - Blender Client Commands
+# Project: Tennis Tracker - WiiSports
 # Function: Using pre-defined messages, this client sends
-# requests to a blender server to perform object manipulation
-# or request information from the blender 3D enviornment
+# requests to a "snickerdoodle"" server to perform image
+# proecessing and supporting functions.
 
 import socket
 import struct
 import numpy as np
+import cv2
 from enum import Enum
 from PIL import ImageTk, Image
 
@@ -20,34 +21,21 @@ class Msgs(str, Enum):
     KILL_MESSAGE = "!KILL"
     DISCONNECT_MESSAGE = "!DISCONNECT"
     CALIBRATION_REQUEST = "!CALIBRATION"
-    RECIEVE_IMAGE_REQUEST = "!RECIEVEIMAGE"
-    SEND_FEEDTHROUGH_REQUEST = "!SENDFEEDTHROUGH"
-    SEND_PROCESSED_REQUEST = "!SENDPROCESSED"
-    COORDINATE_REQUEST = "!COORDINATE"
+    IMAGES_TO_SNICK = "!IMGTOSNICK"
+    FEEDTHROUGH_FROM_SNICK = "!GETFEEDTHROUGH"
+    PROCESSED_FROM_SNICK = "!GETPROCESSED"
+    COORDINATE_CALCULATIONS = "!COORDINATE"
     ...
 
 leftCamera= "LeftCamera"
 rightCamera = "RightCamera"
 tennisBall = "tennisBall"
 
-def transform_object(client, obj, x, y, z, pitch, roll, yaw):
-    sendString(client, Msgs.TRANSFORM_REQUEST)
-
-    # Send object name
-    sendString(client, obj)
-
-    # Send pose data
-    # Structure follows: Number of bytes (in this case the # of bytes matches # of arguments)
-    # camera width and height, x,y,z transforms, pitch,roll,yaw transforms
-    data = struct.pack('6f', x, y, z, pitch, roll, yaw)
-    client.sendall(data)
-
 def getCoordinates(client, obj):
     sendString(client, Msgs.COORDINATE_REQUEST)
     sendString(client, obj)
-    # We attempt to recieve float values
     try:
-        data = client.recv(4)
+        data = client.recv(12)
         depthDouble = struct.unpack('4f', data)
     except (ConnectionError, struct.error) as e:
         print(f"Error receiving data: {e}")
@@ -79,7 +67,7 @@ def recieveImage(client, width, height):
 def sendString(client, msg):
     # Our destination server expects a message length to be sent before
     # any other communication, so we derive the length of our desired
-    # message which will be the first message sent.
+    # message which will be the first message sent. 
     messageForServer = msg.encode(FORMAT)
     messageLength = len(messageForServer)
     sendLength = str(messageLength).encode(FORMAT)
@@ -88,19 +76,33 @@ def sendString(client, msg):
     client.send(sendLength)
     client.send(messageForServer)
 
-def connect_and_capture(width, height):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
-        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client.connect(ADDR)
-        print("[CLIENT] Connected to server...")
+def sendImages(client):
+    left = cv2.imread("./test-images/leftBall.jpg")
+    leftBaseline = cv2.imread("./test-images/leftBaseline.jpg")
+    right = cv2.imread("./test-images/rightBall.jpg")
+    rightBaseline = cv2.imread("./test-images/rightBaseline.jpg")
 
-        #im1 = sendImageRequest(client, width, height)
-        #dist = getCoordinates(client, tennisBall)
+    height = left.shape[0]
+    width = left.shape[1]
+    channels = left.shape[2]
+    num_images = 4
+    data = struct.pack('4i', width, height, channels, num_images)
+    client.sendall(data)
 
-        sendString(client, Msgs.DISCONNECT_MESSAGE)
+    left = np.ascontiguousarray(left, dtype=np.uint8)
+    right = np.ascontiguousarray(right, dtype=np.uint8)
+    leftBaseline = np.ascontiguousarray(leftBaseline, dtype=np.uint8)
+    rightBaseline = np.ascontiguousarray(rightBaseline, dtype=np.uint8)
 
-        return
-    
+    client.sendall(left)
+    print("Sent left image, size:", left.shape)
+    client.sendall(leftBaseline)
+    print("Sent left baseline image, size:", leftBaseline.shape)
+    client.sendall(right)
+    print("Sent right image, size:", right.shape)
+    client.sendall(rightBaseline)
+    print("Sent right baseline image, size:", rightBaseline.shape)
+
 def testConnection():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -109,11 +111,47 @@ def testConnection():
         sendString(client, Msgs.DISCONNECT_MESSAGE)
         print("[CLIENT] Disconnected from server...")
 
+def testCalibration():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect(ADDR)
+        print("[CLIENT] Connected to server...")
+        sendString(client, Msgs.CALIBRATION_REQUEST)
+        print("[CLIENT] Sending calibration request...")
+        data = struct.pack('3f', 1000.0, 5.0, 0.006)
+        client.sendall(data)
+        sendString(client, Msgs.DISCONNECT_MESSAGE)
+        print("[CLIENT] Disconnected from server...")
+
 def testImageSend():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect(ADDR)
         print("[CLIENT] Connected to server...")
+        sendString(client, Msgs.IMAGES_TO_SNICK)
+        print("[CLIENT] Sending image request...")
+        sendImages(client)
+        sendString(client, Msgs.DISCONNECT_MESSAGE)
+        print("[CLIENT] Disconnected from server...")
+
+def testCoordinates():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect(ADDR)
+        print("[CLIENT] Connected to server...")
+
+        sendString(client, Msgs.COORDINATE_CALCULATIONS)
+        print("[CLIENT] Sending coordinate request...")
+        # receive floats
+        try:
+            data = client.recv(12)
+            floats = struct.unpack('3f', data)
+        except (ConnectionError, struct.error) as e:
+            print(f"Error receiving data: {e}")
+            return
+        x, y, z = floats[0], floats[1], floats[2]
+        print(f"Received coordinates: x={x}, y={y}, z={z}")
+
         sendString(client, Msgs.DISCONNECT_MESSAGE)
         print("[CLIENT] Disconnected from server...")
 
@@ -128,4 +166,7 @@ def killServer():
 
 if __name__ == "__main__":
     #testConnection()
+    testCalibration()
+    testImageSend()
+    testCoordinates()
     killServer()

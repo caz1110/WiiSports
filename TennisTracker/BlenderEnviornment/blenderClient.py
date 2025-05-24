@@ -133,8 +133,14 @@ def change_cam_positions(baseline, x, y, z, pitch, roll, yaw):
 if __name__ == "__main__":
     change_obj_position("tennisBall", 0, 0, 35 , 0, 0, 0)
     im1, im2, dist = connect_and_capture(752, 480)
-    im1.save("leftBaseline.jpg")
-    im2.save("rightBaseline.jpg")
+    im1.save("./test-images/leftBaseline.jpg")
+    im2.save("./test-images/rightBaseline.jpg")
+
+    change_obj_position("tennisBall", 0, 0, 20, 0, 0, 0)
+    im1, im2, dist = connect_and_capture(752, 480)
+    im1.save("./test-images/leftBall.jpg")
+    im2.save("./test-images/rightBall.jpg")
+
     print(dist)
     #change_cam_positions(752,)
     #im.save("test.png")

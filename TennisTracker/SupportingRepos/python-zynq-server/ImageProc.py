@@ -24,6 +24,16 @@ def generateDefaultStereoConfig():
         json.dump(default_config, f, indent=4)
     print(f"Default stereo config saved to {CONFIG_PATH}")
 
+def updateStereoConfig(baseline: float, focal_length: float, pixel_size: float):
+    config = {
+        "baseline_mm": baseline,
+        "focal_length_mm": focal_length,
+        "pixel_size_mm": pixel_size
+    }
+    with open(CONFIG_PATH, "w") as f:
+        json.dump(config, f, indent=4)
+    print(f"Stereo config updated: {config}")
+
 def loadStereoConfig():
     if not os.path.exists(CONFIG_PATH):
         print(f"{CONFIG_PATH} not found. Generating default config.")
@@ -39,17 +49,17 @@ def loadStereoConfig():
 def detectContors(image: cv2.typing.MatLike, baseline: cv2.typing.MatLike):
     # Image differencing
     mod_img = cv2.absdiff(image, baseline)
-    print(cv2.imwrite("diff.png", mod_img))
+    print(cv2.imwrite("./test-images/diff.png", mod_img))
     
     # Grayscale
     mod_img = cv2.cvtColor(mod_img,cv2.COLOR_BGR2GRAY)
-    print(cv2.imwrite("gray.png", mod_img))
+    print(cv2.imwrite("./test-images/gray.png", mod_img))
 
     # Binary thresholding
     lower_bound = np.array(40, dtype=np.uint8)
     upper_bound = np.array(130, dtype=np.uint8)
     mask = cv2.inRange(mod_img, lower_bound, upper_bound)
-    print(cv2.imwrite("binary.png", mask))
+    print(cv2.imwrite("./test-images/binary.png", mask))
 
     # Morphological operations to reduce false positives
     kernel = np.ones((3, 3), np.uint8)

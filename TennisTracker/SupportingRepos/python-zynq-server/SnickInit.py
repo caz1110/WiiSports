@@ -12,7 +12,7 @@ import queue
 import socket
 import struct
 import time
-from ImageProc import detectContors, calculateCoordinates
+from ImageProc import detectContors, calculateCoordinates, updateStereoConfig
 
 PCSERVER = socket.gethostbyname(socket.gethostname())
 HEADER = 64
@@ -24,10 +24,10 @@ class Msgs(str, Enum):
     KILL_MESSAGE = "!KILL"
     DISCONNECT_MESSAGE = "!DISCONNECT"
     CALIBRATION_REQUEST = "!CALIBRATION"
-    RECIEVE_IMAGE_REQUEST = "!RECIEVEIMAGE"
-    SEND_FEEDTHROUGH_REQUEST = "!SENDFEEDTHROUGH"
-    SEND_PROCESSED_REQUEST = "!SENDPROCESSED"
-    COORDINATE_REQUEST = "!COORDINATE"
+    IMAGES_TO_SNICK = "!IMGTOSNICK"
+    FEEDTHROUGH_FROM_SNICK = "!GETFEEDTHROUGH"
+    PROCESSED_FROM_SNICK = "!GETPROCESSED"
+    COORDINATE_CALCULATIONS = "!COORDINATE"
     ...
 
 serverBool = False
@@ -41,30 +41,40 @@ right = None
 rightProcessed = None
 rightBaseline = None
 
-# Create a queue to handle Blender operations in the
-# main thread, blender operations are not thread safe.
-snick_operations_queue = queue.Queue()
-def process_blender_operations():
-    """Process queued snick operations in the main thread."""
-    while not snick_operations_queue.empty():
-        operation = snick_operations_queue.get()
-        operation()
-    return 0.1  # Re-run this function every 0.1 seconds
-
 # sterocameraCalibration() function
 # Function intakes calibration parameters for
 # baseline and focal length before saving them
 # into a configuration file to be used for
 # coordinate calculations.
-def steroCalibration():
-    pass
+def steroCalibration(conn):
+    try:
+        data = conn.recv(12)
+        calibrationFloats = struct.unpack('3f', data)
+    except (ConnectionError, struct.error) as e:
+        print(f"Error receiving data: {e}")
+        return
+    
+    baseline, focal_length, pixel_size = calibrationFloats[0], calibrationFloats[1], calibrationFloats[2]
+    print(f"[ALERT] Received calibration data: {baseline}, {focal_length}, {pixel_size}")
+
+    updateStereoConfig(baseline=baseline, focal_length=focal_length, pixel_size=pixel_size)
+    print(f"[ALERT] Calibration data saved to configuration file.")
 
 # recieveImages() function
 # Function intakes stero image files 
-def receiveImages(conn, num_images=4, width=752, height=480):
-    """Receive `num_images` RGBA images of given dimensions from the connection."""
-    image_size = width * height * 4  # RGBA = 4 bytes per pixel
-    total_size = num_images * image_size
+def receiveImages(conn):
+    global left, leftProcessed, leftBaseline, right, rightProcessed, rightBaseline
+    # receive floats
+    try:
+        data = conn.recv(16)
+        floats = struct.unpack('4i', data)
+    except (ConnectionError, struct.error) as e:
+        print(f"Error receiving data: {e}")
+        return
+    # Receive a number of images of a provided size from socket client
+    # The images are expected to be in RGBA format
+    image_size = floats[0] * floats[1] * floats[2]
+    total_size = floats[3] * image_size
     buffer = bytearray()
 
     while len(buffer) < total_size:
@@ -76,25 +86,10 @@ def receiveImages(conn, num_images=4, width=752, height=480):
     # Convert buffer to a list of NumPy RGBA images
     frame = np.frombuffer(buffer, dtype=np.uint8)
     images = [
-        frame[i*image_size:(i+1)*image_size].reshape((height, width, 4))
-        for i in range(num_images)
+        frame[i*image_size:(i+1)*image_size].reshape((floats[1], floats[0], floats[2]))
+        for i in range(floats[3])
     ]
     return images
-
-def pack_frame(frame):
-    f = BytesIO()
-    np.savez(f, frame=frame)
-    
-    packet_size = len(f.getvalue())
-    header = '{0}:'.format(packet_size)
-    header = bytes(header.encode())  # prepend length of array
-
-    out = bytearray()
-    #out += header
-
-    f.seek(0)
-    out += f.read()
-    return out
 
 def sendStereoFrames(conn, frame1, frame2):
     if not isinstance(frame1, np.ndarray):
@@ -102,9 +97,6 @@ def sendStereoFrames(conn, frame1, frame2):
     
     if not isinstance(frame2, np.ndarray):
         raise TypeError("input frame is not a valid numpy array")
-
-    out1 = pack_frame(frame1)
-    out2 = pack_frame(frame2)
 
     socket = conn.socket
     if(conn.client_connection):
@@ -114,21 +106,20 @@ def sendStereoFrames(conn, frame1, frame2):
         socket.sendall(frame2)
     except BrokenPipeError:
         print("pipe error")
-        #logging.error("connection broken")
-        #raise
+        return
 
 def sendCoordinates(conn):
+    global left, leftProcessed, leftBaseline, right, rightProcessed, rightBaseline
     if left is None or right is None:
         print("[ERROR] Images not received yet!")
         x = 0
         y = 0
         z = 0
-    elif leftProcessed is None or rightProcessed is None:
-        print("[WARNING] Images not processed. Performing image processing!")
-        leftProcessed, rightProcessed = detectContors(left, right)
-        x, y, z = calculateCoordinates(leftProcessed, rightProcessed, leftBaseline, rightBaseline)
     else:
-        x, y, z = calculateCoordinates(leftProcessed, rightProcessed, leftBaseline, rightBaseline)
+        print("[ALERT] Performing image processing!")
+        leftProcessed, leftCenter = detectContors(left, leftBaseline)
+        rightProcessed, rightCenter = detectContors(right, rightBaseline)
+        x, y, z = calculateCoordinates(leftCenter, rightCenter, left.shape[1], left.shape[0])
     data = struct.pack('3f', x, y, z)
     conn.sendall(data)
 
@@ -155,7 +146,6 @@ def handle_client(conn, addr):
             match message:
                 case Msgs.KILL_MESSAGE:
                     print(f"[KILL REQUEST] {addr}")
-                    # Kill the server
                     serverBool = False
                     break
                 case Msgs.DISCONNECT_MESSAGE:
@@ -163,8 +153,8 @@ def handle_client(conn, addr):
                     break
                 case Msgs.CALIBRATION_REQUEST:
                     print(f"[CALIBRATION REQUEST] {addr}")
-                    # Calibrate "Snickerdoodle"
-                case Msgs.RECIEVE_IMAGE_REQUEST:
+                    steroCalibration(conn)
+                case Msgs.IMAGES_TO_SNICK:
                     print(f"[RECEIVE FRAMES REQUEST] {addr}")
                     try:
                         imgs = receiveImages(conn)
@@ -172,9 +162,9 @@ def handle_client(conn, addr):
                         print(f"[IMAGES RECEIVED] Left and right images stored.")
                     except Exception as e:
                         print(f"[ERROR RECEIVING IMAGES] {e}")
-                case Msgs.SEND_FEEDTHROUGH_REQUEST:
+                        break
+                case Msgs.FEEDTHROUGH_FROM_SNICK:
                     print(f"[FEEDTHROUGH FRAMES REQUEST]] {addr}")
-                    # Send unprocessed images
                 case Msgs.SEND_PROCESSED_REQUEST:
                     print(f"[PROCESSED FRAMES REQUEST] {addr}")  
                 case Msgs.COORDINATE_REQUEST:
@@ -185,14 +175,6 @@ def handle_client(conn, addr):
 
     conn.close()
 
-def startQueueProcessor():
-    def run():
-        while serverBool:
-            process_blender_operations()
-            time.sleep(0.1)
-    thread = threading.Thread(target=run, daemon=True)
-    thread.start()
-
 def startServer():
     global server, serverBool, renderRequest, renderFinished
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -200,10 +182,6 @@ def startServer():
     serverBool = True
     server.listen()
     print(f"[LISTEN] server is listening on {PCSERVER}")
-
-
-    # Start the queue processor thread
-    startQueueProcessor()
 
     # A timeout is employed in order to allow for serverBool to be checked, otherwise,
     # it will only check following the handling of a new client being connected.
@@ -225,6 +203,9 @@ def endServer():
         server.close()
     except OSError as e:
         print(f"[ERROR] Error closing server: {e}")
+        print("[WARNING] Killing python process...")
+        exit(1)
+    print("[END] server closed.")
 
 #####################
 # GUI GENERATION
