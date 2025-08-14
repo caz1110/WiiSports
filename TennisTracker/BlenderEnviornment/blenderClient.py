@@ -63,7 +63,8 @@ def sendCameraRequest(client, width, height):
     client.sendall(data)
 
     # Receive image data
-    img_size = width * height * 4  # Assuming 4 channels per pixel
+    numPixelChannels = 4  # Assuming RGBA format
+    img_size = width * height * numPixelChannels
     data = bytearray()
     while len(data) < img_size:
         packet = client.recv(img_size - len(data))
@@ -131,16 +132,30 @@ def change_cam_positions(baseline, x, y, z, pitch, roll, yaw):
         sendString(client, Msgs.DISCONNECT_MESSAGE)
 
 if __name__ == "__main__":
-    change_obj_position("tennisBall", 0, 0, 35 , 0, 0, 0)
+    # Named variables for tennis ball position and orientation
+    tennisBall_x = 0
+    tennisBall_y = 0
+    tennisBall_z_high = 35
+    tennisBall_z_low = 20
+    tennisBall_pitch = 0
+    tennisBall_roll = 0
+    tennisBall_yaw = 0
+
+    # Move tennis ball to high position
+    change_obj_position("tennisBall",
+                        tennisBall_x, tennisBall_y, tennisBall_z_high,
+                        tennisBall_pitch, tennisBall_roll, tennisBall_yaw)
     im1, im2, dist = connect_and_capture(752, 480)
     im1.save("./test-images/leftBaseline.jpg")
     im2.save("./test-images/rightBaseline.jpg")
 
-    change_obj_position("tennisBall", 0, 0, 20, 0, 0, 0)
+    # Move tennis ball to low position
+    change_obj_position("tennisBall",
+                        tennisBall_x, tennisBall_y, tennisBall_z_low,
+                        tennisBall_pitch, tennisBall_roll, tennisBall_yaw)
     im1, im2, dist = connect_and_capture(752, 480)
     im1.save("./test-images/leftBall.jpg")
     im2.save("./test-images/rightBall.jpg")
 
     print(dist)
-    #change_cam_positions(752,)
     #im.save("test.png")

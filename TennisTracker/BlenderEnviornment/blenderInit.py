@@ -3,6 +3,7 @@
 # blenderInit creates a GUI for which a socket server
 # can be started or stopped. This server and client
 # connections run on seperate threads.
+# As the name suggests, this file is to be run within the blender application
 
 import bpy # type: ignore
 from enum import Enum
@@ -34,15 +35,16 @@ server_thread = None
 
 # Create a queue to handle Blender operations in the
 # main thread, blender operations are not thread safe.
+# ASK ME HOW I KNOW...
 blender_operations_queue = queue.Queue()
 def process_blender_operations():
-    """Process queued Blender operations in the main thread."""
     while not blender_operations_queue.empty():
         operation = blender_operations_queue.get()
         operation()
     return 0.1  # Re-run this function every 0.1 seconds
 bpy.app.timers.register(process_blender_operations)
 
+# I'm not going to lie I have no idea what this does
 # switch on nodes
 bpy.context.scene.use_nodes = True
 tree = bpy.context.scene.node_tree
@@ -75,6 +77,11 @@ def safe_xform_object_by_name(name, floats):
     else:
         print(f"Object '{name}' not found.")
 
+# xform_object_by_name(conn) function
+# This function takes in 6 floats representing the
+# x, y, z position and pitch, roll, yaw rotation of an object.
+# Because it requires a particular size of data to be sent,
+# it allows us to assume that all 6 floats will be sent.
 def xform_object_by_name(conn):
     try:
         message_length = conn.recv(HEADER).decode(FORMAT)
