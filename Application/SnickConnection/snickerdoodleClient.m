@@ -60,6 +60,42 @@ classdef snickerdoodleClient
             write(client, floatBytes, 'uint8');
         end
 
+        % This breaks if images are not the same size!
+        function sendImages (client, imageLeft, baselineLeft, imageRight, baselineRight)
+            % Data payload prep
+            height = size(imageLeft, 1);
+            width = size(imageLeft, 2);
+            channels = size(imageLeft, 3);
+            numberOfImages = 4;
+            if any(size(imageLeft) ~= size(imageRight))
+                error("[MATLAB CLIENT] Images must be the same size!");
+            end
+            floatData = single([height, width, channels, numberOfImages]);
+            floatBytes = typecast(floatData, 'uint8');
+
+            % Informs server of incoming images and their size
+            snickerdoodleClient.sendString(client, snickerdoodleClient.Msgs.IMAGES_TO_SNICK);
+            write(client, floatBytes, 'uint8');
+
+            % Send images
+            imageLeft    = uint8(imageLeft);
+            imageRight   = uint8(imageRight);
+            baselineLeft = uint8(baselineLeft);
+            baselineRight= uint8(baselineRight);
+
+            write(client, imageLeft(:), "uint8");
+            fprintf("Sent left image, size: %s\n", mat2str(size(imageLeft)));
+
+            write(client, baselineLeft(:), "uint8");
+            fprintf("Sent left baseline image, size: %s\n", mat2str(size(baselineLeft)));
+
+            write(client, imageRight(:), "uint8");
+            fprintf("Sent right image, size: %s\n", mat2str(size(imageRight)));
+
+            write(client, baselineRight(:), "uint8");
+            fprintf("Sent right baseline image, size: %s\n", mat2str(size(baselineRight)));
+        end
+
         function killSnick(client)
             try
                 snickerdoodleClient.sendString(client, snickerdoodleClient.Msgs.KILL_MESSAGE);

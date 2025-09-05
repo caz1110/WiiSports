@@ -10,7 +10,7 @@ import numpy as np
 from enum import Enum
 from PIL import ImageTk, Image
 
-PCSERVER = socket.gethostbyname(socket.gethostname())
+PCSERVER = socket.gethostbyname('localhost')
 HEADER = 64
 PORT = 5050
 ADDR = (PCSERVER, PORT)

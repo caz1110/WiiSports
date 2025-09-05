@@ -14,7 +14,20 @@ import struct
 import time
 from ImageProc import detectContors, calculateCoordinates, updateStereoConfig
 
-PCSERVER = socket.gethostbyname(socket.gethostname())
+def get_local_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        # Doesn't need to be reachable, just used to get the local IP
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    except Exception:
+        ip = '127.0.0.1'
+    finally:
+        s.close()
+    return ip
+
+PCSERVER = get_local_ip()
+
 HEADER = 64
 PORT = 9999
 ADDR = (PCSERVER, PORT)
@@ -181,7 +194,7 @@ def startServer():
     server.bind(ADDR)
     serverBool = True
     server.listen()
-    print(f"[LISTEN] server is listening on {PCSERVER}")
+    print(f"[LISTEN] server is listening on {PCSERVER}:{PORT}")
 
     # A timeout is employed in order to allow for serverBool to be checked, otherwise,
     # it will only check following the handling of a new client being connected.
