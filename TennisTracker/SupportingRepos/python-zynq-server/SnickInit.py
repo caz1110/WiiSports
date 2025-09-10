@@ -204,7 +204,7 @@ def startServer():
             conn, addr = server.accept()
             thread = threading.Thread(target=handle_client, args=(conn, addr))
             thread.start()
-            print(f"[ACTIVE CONNECTIONS] {threading.active_count() - 2}")
+            print(f"[ACTIVE CONNECTIONS] {threading.active_count() - 1}")
         except socket.timeout:
             continue
     endServer()

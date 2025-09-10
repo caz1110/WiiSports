@@ -61,40 +61,75 @@ classdef snickerdoodleClient
         end
 
         % This breaks if images are not the same size!
-        function sendImages (client, imageLeft, baselineLeft, imageRight, baselineRight)
+        function sendImages(client, imageLeft, baselineLeft, imageRight, baselineRight)
             % Data payload prep
             height = size(imageLeft, 1);
             width = size(imageLeft, 2);
             channels = size(imageLeft, 3);
             numberOfImages = 4;
+        
             if any(size(imageLeft) ~= size(imageRight))
                 error("[MATLAB CLIENT] Images must be the same size!");
             end
-            floatData = single([height, width, channels, numberOfImages]);
-            floatBytes = typecast(floatData, 'uint8');
-
+        
+            % Pack metadata as int32 (Python expects this)
+            intData = int32([width, height, channels, numberOfImages]);
+            intBytes = typecast(intData, 'uint8');
+        
             % Informs server of incoming images and their size
             snickerdoodleClient.sendString(client, snickerdoodleClient.Msgs.IMAGES_TO_SNICK);
-            write(client, floatBytes, 'uint8');
-
-            % Send images
+            write(client, intBytes, 'uint8');
+        
+            % Send images (flatten to byte stream)
             imageLeft    = uint8(imageLeft);
-            imageRight   = uint8(imageRight);
             baselineLeft = uint8(baselineLeft);
+            imageRight   = uint8(imageRight);
             baselineRight= uint8(baselineRight);
-
+        
             write(client, imageLeft(:), "uint8");
             fprintf("Sent left image, size: %s\n", mat2str(size(imageLeft)));
-
+        
             write(client, baselineLeft(:), "uint8");
             fprintf("Sent left baseline image, size: %s\n", mat2str(size(baselineLeft)));
-
+        
             write(client, imageRight(:), "uint8");
             fprintf("Sent right image, size: %s\n", mat2str(size(imageRight)));
-
+        
             write(client, baselineRight(:), "uint8");
             fprintf("Sent right baseline image, size: %s\n", mat2str(size(baselineRight)));
         end
+
+        function [img1, img2] = requestProcessedFrames(client, width, height)
+            % GIMME MY PROCESSED FRAMES
+            snickerdoodleClient.sendString(client, snickerdoodleClient.Msgs.PROCESSED_FROM_SNICK);
+        
+            imageChannels = 4;   % RGBA
+            numberOfImages = 2;  % we expect left + right
+            imageSize = width * height * imageChannels;
+            totalSize = numberOfImages * imageSize;
+        
+            % Read until full buffer is received. Hope you got the image
+            % size right buddy.
+            buffer = uint8([]);
+            while length(buffer) < totalSize
+                data = read(client, totalSize - length(buffer), 'uint8');
+                buffer = [buffer; data];
+            end
+        
+            % Split into two images
+            img1_raw = buffer(1:imageSize);
+            img2_raw = buffer(imageSize+1:end);
+        
+            % Reshape to (H, W, 4) then drop alpha (fuck transparency)
+            img1_rgba = reshape(img1_raw, [imageChannels, width, height]);
+            img1_rgb = permute(img1_rgba(1:3, :, :), [3, 2, 1]);  % (H, W, 3)
+            img1 = flipud(uint8(img1_rgb));
+        
+            img2_rgba = reshape(img2_raw, [imageChannels, width, height]);
+            img2_rgb = permute(img2_rgba(1:3, :, :), [3, 2, 1]);  % (H, W, 3)
+            img2 = flipud(uint8(img2_rgb));
+        end
+
 
         function killSnick(client)
             try
