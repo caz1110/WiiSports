@@ -1,132 +1,81 @@
 # Wii Sports
-*Wii Sports* is a team for Dr. Kaputa's Embedded Systems Design II class for the Spring 2025 semester at RIT. 
 
-## Introduction + Switch From BitBucket
-We plan to make our tennis tracker inspired by *Wii Sports*, hence the name! Initially, we planned to use *BitBucket* due to its seamless interaction with Jira, which we are using for team organization, but decided to switch to *GitHub* due to the **lower bar of learning** associated with it. We also decided on the switch because we were having issues that ate up more time than it was worth while using BitBucket. 
+Originally a Senior Capstone Project, _Wii Sports_ is now an on-going embedded systems solution utilizeing Computer Vision Technology, with Embedded System Design to create an inexpensive, accessible, and scalable sports monitoring solution.
 
-## Team Details
-Each teammate in this team of seven has their own major role, alongside responsibilities, and potentially subroles. Our initial outline for roles is as follows, but subject to change by the end of this project, and will be updated to reflect that as work is completed. 
+## Project overview
 
- - **Sumner, Jonathan** | @JRSumner1 | JRS1088
-	 - Project and Python Lead
- - **Zamopra, Chris** | @caz1110 | CAZ1110
-	 - FPGA Image Processing Lead
- - **Hong, Ryan** | @Beolida | RSH4342
-	 - Systems Integration Lead
- - **DuBois, Rachel** | @roqqyroad | RJD5748
-	 - QA & Version Control Lead
- - **Aquino, Argenis** | @crasher122 |  AA7863
-	 - Blender Environment Lead
- - **Garcia, Hector** | @Alucarpinx | HIG9035
-	 - Accuracy and Analytics Co-lead
- - **Delgadillo-Perez, David** | @ | DAD4043
-	 - Accuracy and Analytics Co-lead
+This repository contains research and implementation artifacts for a multi-disciplinary project bringing together computer vision (MATLAB + Python), embedded system integration (FPGA/Vivado), and 3D scene assets (Blender). The codebase is organized into several top-level folders that target different parts of the system:
 
-# Help Cloning Repository
-To clone the repository (where we store all the code for this project, alongside do version control), you have a few options on how to do it. To clone, push, and pull it is easiest to do it through Visual Studio Code (the blue one, not the purple one). 
+- `Application/` – MATLAB apps, camera calibration data, image assets, and client scripts used for demos and image-processing experiments.
+- `Camera Calibration/`, `rev2 Cam Calibration/` – camera/ stereo calibration parameters and images used for calibration sessions.
+- `TennisTracker/` – main tracking experiments, blender environment, Vivado/HDL/Simulink artifacts, and datasets used to validate the tracker and embedded pipeline.
+- `ServeVollyDataFiles/` (inside `TennisTracker/`) – sample serve/volley datasets used by offline experiments.
+- `SupportingRepos/` – helper repositories and example clients for virtual camera servers, Zynq server examples, and other integration utilities.
 
-Below is a list of requirements before you get started: 
-- Installed Visual Studio Code 
-- Installed Git
-- Logged into GitHub
-- Member of the Wii Sports Organization on GitHub
+## Quick start
 
-If you do not have these requirements met and need help, DM Rachel on Discord. 
-If you have already used Visual Studio Code, you will have to create a new window before you can follow the same steps (File > New Window)
+Prerequisites (high-level):
 
-The steps to clone the repository are below:
+- Python 3.8+ (for Python scripts, clients, and utilities)
+- MATLAB (R2020a or later recommended) for `.m` scripts, `.mlapp` apps and Simulink models
+- Blender (for the `tennisCourt.blend` assets if you intend to open the 3D scenes)
+- Vivado / HDL toolchain (if you will work with FPGA/bitstreams under `TennisTracker/`)
 
-1. Click the "Source Control" icon in the left menu (Ctrl + Shift + G)
-2. Click "Clone Repository"
-3. Click "Clone from GitHub"
-4. Wait for the list to populate. It will take a second depending on how many repositories you are a part of 
-5. Click the repository that is titled "WiiSportsESD2/WiiSports"
-6. Choose a location to save the repository and click "Select as Repository Destination"
-7. It will download the repository to the selected location, which may take a second depending on how long we have been working. 
-8. Click "Open in New Window"
+Basic Python setup (from project root):
 
-You have now successfully cloned the repository! 
-When you open Visual Studio Code, it will usually open at the location you were last at, which will likely be this repo. 
-If it is not, you can see recent repositories by going to File > Open Recent > LOCAL REPO LOCATION AND NAME 
-If you need further help cloning the repository, DM Rachel on Discord. I can either make a time to walk through it with you or help figure out what the issue you are experiencing is.  
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
-# Branch Creation Through Jira
-To maintain proper workflow and traceability, we'll create branches directly linked to Jira issues. Follow these steps:
+Notes:
 
-1. Navigate to your assigned Jira issue
-2. In the issue details, locate the "Create branch" button (usually near the top right)
-3. Select "GitHub" as the repository source
-4. Choose the base branch (typically `main` or `dev`)
-5. The branch name will auto-generate based on the issue key (e.g., `JIRA-123-feature-description`)
-6. Click "Create branch"
-7. The branch will now be available in GitHub and your local repository after pulling
+- The `requirements.txt` contains Python dependencies for the small helper scripts and clients. It does not install MATLAB toolboxes or Vivado.
+- Many core algorithms and user interfaces live in MATLAB files and apps (see `Application/` and `TennisTracker/`). Open `TennisProjectGUI.mlapp` in MATLAB App Designer to run the GUI.
 
-Alternatively, you can manually create a branch following the naming convention:
-`<Jira-issue-key>-<short-description>` (e.g., `WS-45-implement-sensor-calibration`)
+## Recommended workflow by area
 
-# Help Creating a Branch 
-We are going to be using branches to avoid creating as many merge conflicts as possible and ensure that we can keep working in a smooth fashion. The branches system allows us to also ensure that no one is able to overwrite someone else's code (or at least much less likely to do so) if you forgot to push or pull. 
+- Camera calibration: open the calibration scripts and data in `Camera Calibration/` or `rev2 Cam Calibration/` and run the included calibration sessions (`.m` files and `.mat` data are provided).
+- Application: `Application/TennisProjectGUI.mlapp` is the main GUI demo. `CamParam2.m` and `calibrationSession_Final.mat` provide calibration parameters used by the app.
+- TennisTracker: contains Blender scenes (for synthetic data / visualization), Simulink models, Vivado/HDL projects, and offline datasets. Use the `BlenderEnviornment/` Python scripts if you want to generate or replay virtual camera images.
 
-To create a branch in Visual Studio Code:
+## Files & folders at a glance
 
-1. Click on the current branch name in the bottom left corner
-2. Select "Create new branch"
-3. Enter your branch name following the Jira naming convention
-4. Select the base branch (usually `main`)
-5. Make your changes and commit them to this branch
-6. Push the branch to GitHub (see Pushing/Pulling section below)
+- `Application/` – MATLAB GUI, calibration session `.mat`, example clients in `Clients/`.
+- `TennisTracker/BlenderEnviornment/` – Python scripts to initialize Blender scenes and the exported `.blend` file used for visual testing.
+- `TennisTracker/Fusion2`, `+fusion2`, `hdl_prj` – HDL/Vivado project bits and IP used for FPGA prototyping. These artifacts are large; be careful modifying without the proper toolchain.
+- `SupportingRepos/` – useful example servers and virtual camera helpers. See `matlab-zynq-server` and `python-zynq-server` for examples of host/server code interacting with Zynq targets.
 
-If you need help with creating a branch in the repository, DM Rachel on Discord. 
+## Running MATLAB pieces
 
-# Creating Pull Requests
-When your feature/bugfix is complete and tested:
+1. Open MATLAB and add the repository root to the path (or cd into the folder).
+2. Open `Application/TennisProjectGUI.mlapp` in App Designer to launch the GUI.
+3. If you only need to run scripts, open the `.m` files (for example, `Application/CamParam2.m`) and run them in the MATLAB command window.
 
-1. Push all your changes to your branch
-2. Navigate to the GitHub repository
-3. Click on "Pull requests" > "New pull request"
-4. Select your branch as the compare branch and `main` (or appropriate target) as the base branch
-5. Add a descriptive title including the Jira issue key (e.g., "[WS-123] Implement motion detection")
-6. In the description:
-   - Reference the Jira issue (e.g., "Closes WS-123" or "Related to WS-456")
-   - Describe changes made
-   - List any testing performed
-   - Note any dependencies
-7. Request reviewers (typically your team leads)
-8. Assign the PR to yourself
-9. Link the Jira issue in the development panel
-10. Click "Create pull request"
+Important: MATLAB toolboxes used in the project may include the Computer Vision Toolbox and Simulink. If you see missing-function errors, install the corresponding toolbox or run those scripts with alternative Python implementations where available.
 
-After approval:
-- A team lead will merge your PR
-- Delete the feature branch (unless specified otherwise)
-- The Jira issue will automatically transition if you used "Closes" in the description
+## Blender and Vivado notes
 
-# Help Pushing and Pulling to & from Repository
-For pushing and pulling, it will be easiest to do it through Visual Studio Code. The steps to do so are below. 
-1. Click the refresh button in the bottom left next to your current branch name. 
-2. If there is a down arrow, you must pull. 
-3. Click the down arrow to pull. 
-4. Wait until all updates are pulled down. 
-5. After the updates are pulled, navigate to the Source Control menu (Ctrl + Shift + G)
-6. In the top menu, you can see any changes you have made since your last commit. 
-7. You can either add all the changes by hovering over the changes text, then clicking the plus that shows up; OR by clicking the plus that shows up next to the specific files you want to add. 
-8. You can also subtract files if you commit them by accident. 
-9. Once you have staged the changes you made that you want to commit, write a message that describes what you changed or did where it says Message (Ctrl + Enter). 
-10. Click Commit to commit your changes. 
-11. There will now be an up arrow next to the refresh button. 
-12. Click it to push your changes to GitHub. If you do not do this, your changes will not show up for the rest of us. 
+- Blender files are provided mainly as visualization assets. Use Blender v2.8+ to open `tennisCourt.blend` in `TennisTracker/BlenderEnviornment/`.
+- The Vivado/HDL files and bitstreams under `TennisTracker/` are tied to a specific FPGA board and toolchain (check `TennisTracker/README.md` and Simulink model comments before opening or programming hardware).
 
-If you need help with pushing or pulling to or from the repository, DM Rachel on Discord. 
-After pulling and pushing, you should be up to date with the latest changes.
+## Contributing
 
-# Best Practices
-- Always pull before starting work
-- Create a new branch for each feature/bugfix
-- Keep branches focused on a single task
-- Commit often with descriptive messages
-- Push your work at the end of each session
-- Create PRs early for feedback on WIP (mark as draft)
-- Resolve merge conflicts promptly
-- Delete merged branches to keep the repo clean
+If you want to contribute:
 
-Remember to update your Jira issues with progress and link all commits/PRs to the relevant issues.
+1. Fork and create a topic branch.
+2. Keep MATLAB and Python changes separated where possible.
+3. Add tests or example runs for any new Python code and list MATLAB requirements in a PR description.
+
+Create issues for feature requests or bugs. Provide steps to reproduce and relevant artifacts (images, `.mat` files, or logs).
+
+## Maintainers & contact
+
+- Chris Zamopra (main contact): see the repository owner `caz1110`.
+
+## Troubleshooting & FAQs
+
+- Q: I get missing MATLAB functions when running scripts. A: Install required MATLAB toolboxes (Computer Vision Toolbox, Image Processing Toolbox, Simulink) or run equivalent Python code in `SupportingRepos/` where available.
+- Q: Python scripts fail with dependency errors. A: Activate the virtual environment and run `pip install -r requirements.txt`.
+- Q: I can't open the Vivado project or program the bitstream. A: Ensure you have the matching Vivado version for the provided bitstreams and access to the target hardware. You will need krtkl - snickerdoodle board packages to successfully compile the vivado design.
