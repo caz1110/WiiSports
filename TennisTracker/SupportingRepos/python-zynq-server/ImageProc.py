@@ -100,8 +100,8 @@ def calculateCoordinates(leftPixel: tuple, rightPixel: tuple, width: int, height
 
     if not leftPixel or not rightPixel:
         print("No coordinates available for calculations!")
-        return None
-
+        return
+    
     leftPixel = np.array(leftPixel, dtype=np.float64)
     rightPixel = np.array(rightPixel, dtype=np.float64)
 
@@ -110,7 +110,7 @@ def calculateCoordinates(leftPixel: tuple, rightPixel: tuple, width: int, height
     
     if disparity_pixels < 1e-3:  # Prevent near-zero disparity issues
         print("Disparity is too small for accurate depth calculation!")
-        return None
+        return
 
     z = (baseLine * focalLength) / disparity  # mm
     z_position = z / 1000.0  # Convert to meters

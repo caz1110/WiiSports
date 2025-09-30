@@ -12,6 +12,7 @@ import queue
 import socket
 import struct
 import time
+import cv2
 from ImageProc import detectContors, calculateCoordinates, updateStereoConfig
 
 def get_local_ip():
@@ -121,6 +122,51 @@ def sendStereoFrames(conn, frame1, frame2):
         print("pipe error")
         return
 
+def sendProcessedFrames(conn):
+    global left, leftProcessed, leftBaseline, right, rightProcessed, rightBaseline
+
+    data = conn.recv(16)
+    unpackedData = struct.unpack('4f', data)
+    image_width = unpackedData[0]
+    image_height = unpackedData[1]
+    image_channel_count = unpackedData[2]
+    number_of_images = unpackedData[3]
+
+    print("[INFO] Recieved desired image data of size: {}x{}x{} for {} images".format(
+        image_width, image_height, image_channel_count, number_of_images))
+
+    if left is None or right is None:
+        print("[ERROR] Images not received yet! Sending blank images.")
+        image_width = int(image_width)
+        image_height = int(image_height)
+        image_channel_count = int(image_channel_count)
+        blank = bytes([0] * (image_width * image_height * image_channel_count))
+        conn.sendall(blank)
+        conn.sendall(blank)
+        print(f"Sent blank images of size: {len(blank)} each")
+        return 0
+    else:
+        print("[ALERT] Performing image processing!")
+        leftProcessed, leftCenter = detectContors(left, leftBaseline)
+        rightProcessed, rightCenter = detectContors(right, rightBaseline)
+        coordResults = calculateCoordinates(leftCenter, rightCenter, left.shape[1], left.shape[0])
+        if coordResults is None:
+            print("[ERROR] Could not calculate coordinates! Sending error values.")
+            x, y, z = -1, -1, -1  # or whatever error values you want
+        else:
+            x, y, z = coordResults
+        print(f"[ALERT] Calculated coordinates: x={x}, y={y}, z={z}")
+    
+    leftProcessedContigous = np.ascontiguousarray(leftProcessed, dtype=np.uint8)
+    rightProcessedContigous = np.ascontiguousarray(rightProcessed, dtype=np.uint8)
+
+    conn.sendall(leftProcessedContigous)
+    conn.sendall(rightProcessedContigous)
+    print("Sent data of size: {}".format(len(leftProcessedContigous)))
+    print("Sent data of size: {}".format(len(rightProcessedContigous)))
+
+    return 0
+
 def sendCoordinates(conn):
     global left, leftProcessed, leftBaseline, right, rightProcessed, rightBaseline
     if left is None or right is None:
@@ -178,9 +224,10 @@ def handle_client(conn, addr):
                         break
                 case Msgs.FEEDTHROUGH_FROM_SNICK:
                     print(f"[FEEDTHROUGH FRAMES REQUEST]] {addr}")
-                case Msgs.SEND_PROCESSED_REQUEST:
-                    print(f"[PROCESSED FRAMES REQUEST] {addr}")  
-                case Msgs.COORDINATE_REQUEST:
+                case Msgs.PROCESSED_FROM_SNICK:
+                    print(f"[PROCESSED FRAMES REQUEST] {addr}")
+                    sendProcessedFrames(conn)  
+                case Msgs.COORDINATE_CALCULATIONS:
                     print(f"[COORDINATE REQUEST] {addr}")
                     sendCoordinates(conn)
                 case _:
